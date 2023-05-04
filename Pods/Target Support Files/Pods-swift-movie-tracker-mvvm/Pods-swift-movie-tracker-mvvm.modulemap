@@ -1,0 +1,6 @@
+framework module Pods_swift_movie_tracker_mvvm {
+  umbrella header "Pods-swift-movie-tracker-mvvm-umbrella.h"
+
+  export *
+  module * { export * }
+}
