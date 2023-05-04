@@ -11,6 +11,9 @@
 		5925E84B2A041BF500D71D9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E84A2A041BF500D71D9F /* SceneDelegate.swift */; };
 		5925E8522A041BF600D71D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5925E8512A041BF600D71D9F /* Assets.xcassets */; };
 		5925E8552A041BF600D71D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5925E8532A041BF600D71D9F /* LaunchScreen.storyboard */; };
+		5925E86A2A04224600D71D9F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E8682A04224600D71D9F /* HomeVC.swift */; };
+		5925E86B2A04224600D71D9F /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5925E8692A04224600D71D9F /* HomeVC.xib */; };
+		5925E86D2A0422C000D71D9F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E86C2A0422C000D71D9F /* TabBarController.swift */; };
 		5FDC43A3DDDD6249DB4CD9F9 /* Pods_swift_movie_tracker_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E016160541FE9E98FAE89D8E /* Pods_swift_movie_tracker_mvvm.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +25,9 @@
 		5925E8512A041BF600D71D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5925E8542A041BF600D71D9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5925E8562A041BF600D71D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5925E8682A04224600D71D9F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		5925E8692A04224600D71D9F /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		5925E86C2A0422C000D71D9F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D846A29C1DE38426C0FD6B52 /* Pods-swift-movie-tracker-mvvm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-movie-tracker-mvvm.debug.xcconfig"; path = "Target Support Files/Pods-swift-movie-tracker-mvvm/Pods-swift-movie-tracker-mvvm.debug.xcconfig"; sourceTree = "<group>"; };
 		E016160541FE9E98FAE89D8E /* Pods_swift_movie_tracker_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_movie_tracker_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,6 +161,7 @@
 		5925E8642A041F9E00D71D9F /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				5925E86C2A0422C000D71D9F /* TabBarController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -162,6 +169,8 @@
 		5925E8652A04204A00D71D9F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5925E8682A04224600D71D9F /* HomeVC.swift */,
+				5925E8692A04224600D71D9F /* HomeVC.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -234,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5925E8552A041BF600D71D9F /* LaunchScreen.storyboard in Resources */,
+				5925E86B2A04224600D71D9F /* HomeVC.xib in Resources */,
 				5925E8522A041BF600D71D9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +297,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5925E86A2A04224600D71D9F /* HomeVC.swift in Sources */,
+				5925E86D2A0422C000D71D9F /* TabBarController.swift in Sources */,
 				5925E8492A041BF500D71D9F /* AppDelegate.swift in Sources */,
 				5925E84B2A041BF500D71D9F /* SceneDelegate.swift in Sources */,
 			);
@@ -430,10 +442,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3CA8G624J9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "swift-movie-tracker-mvvm/Info.plist";
+				INFOPLIST_FILE = "swift-movie-tracker-mvvm/Base/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -459,10 +471,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3CA8G624J9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "swift-movie-tracker-mvvm/Info.plist";
+				INFOPLIST_FILE = "swift-movie-tracker-mvvm/Base/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
