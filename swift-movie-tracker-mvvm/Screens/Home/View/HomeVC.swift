@@ -7,40 +7,54 @@
 
 import UIKit
 
-protocol HomeViewInterface {
+protocol HomeViewInterface: AnyObject {
     func configureCollectionView()
+    func collectionPagingEnabled()
+    func collectionPagingDisabled()
+    func collectionScrollToItem(at indexPath: IndexPath)
 }
 
 final class HomeVC: UIViewController {
-    @IBOutlet weak var highlightCollectionView: UICollectionView!
+    @IBOutlet private weak var highlightCollectionView: UICollectionView!
+    private lazy var viewModel = HomeVM()
     
-
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureCollectionView()
-        
+        viewModel.view = self
+        viewModel.viewDidLoad()
     }
-
-
+    
 }
 
-
+//MARK: - HomeViewInterface
 extension HomeVC: HomeViewInterface {
     func configureCollectionView() {
         highlightCollectionView.delegate = self
         highlightCollectionView.dataSource = self
         highlightCollectionView.registerCell(type: HighlightCollectionCell.self)
-        
+        highlightCollectionView.layer.cornerRadius = 8
     }
     
+    func collectionPagingEnabled() {
+        highlightCollectionView.isPagingEnabled = true
+    }
     
+    func collectionPagingDisabled() {
+        highlightCollectionView.isPagingEnabled = false
+    }
+    
+    func collectionScrollToItem(at indexPath: IndexPath) {
+        highlightCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
 }
 
 //MARK: - UICollectionView
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        viewModel.movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,4 +68,11 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         return CGSize(width: size.width, height: size.height)
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 2
+        let newIndex = Int(offSet + horizontalCenter) / Int(width)
+        viewModel.pageControlIndex = newIndex
+    }
 }

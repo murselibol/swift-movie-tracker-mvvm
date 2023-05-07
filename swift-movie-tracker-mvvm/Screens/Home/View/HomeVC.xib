@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
             <connections>
-                <outlet property="highlightCollectionView" destination="hDz-6C-jA2" id="Bbx-Ar-yCl"/>
+                <outlet property="highlightCollectionView" destination="JIL-MR-4Rb" id="dBA-gs-z28"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,13 +19,13 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hDz-6C-jA2">
-                    <rect key="frame" x="10" y="57" width="370" height="185"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JIL-MR-4Rb">
+                    <rect key="frame" x="10" y="47" width="370" height="185"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="hDz-6C-jA2" secondAttribute="height" multiplier="2:1" id="xlA-WZ-1iX"/>
+                        <constraint firstAttribute="width" secondItem="JIL-MR-4Rb" secondAttribute="height" multiplier="2:1" id="b54-IQ-rNq"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S78-Tf-wbg">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bB3-yo-LUy">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -36,11 +36,11 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="hDz-6C-jA2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="DOb-ID-rpR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hDz-6C-jA2" secondAttribute="trailing" constant="10" id="fuq-vc-hCK"/>
-                <constraint firstItem="hDz-6C-jA2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="upC-Ul-aOd"/>
+                <constraint firstItem="JIL-MR-4Rb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Lhi-9t-KYf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JIL-MR-4Rb" secondAttribute="trailing" constant="10" id="k8f-oV-qa4"/>
+                <constraint firstItem="JIL-MR-4Rb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ukd-Ll-fou"/>
             </constraints>
-            <point key="canvasLocation" x="11" y="-11"/>
+            <point key="canvasLocation" x="10.769230769230768" y="-11.374407582938389"/>
         </view>
     </objects>
     <resources>
