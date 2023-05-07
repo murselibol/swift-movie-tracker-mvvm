@@ -15,9 +15,10 @@ protocol HomeViewModelInterface {
 
 final class HomeVM {
     weak var view: HomeViewInterface?
+    private let service = MovieService()
     
-    var movies = [1,2,3,4,5,6,7,8,9]
-    
+    var movies: [Movie] = []
+    private let selectedMovieCategory: MovieCategory = .nowPlaying
     private var timer = Timer()
     var pageControlIndex = 0
     
@@ -43,12 +44,29 @@ final class HomeVM {
         view?.collectionPagingEnabled()
     }
     
+    //MARK: - Network Functions
+    func fetchTrendingMovies() {
+        service.getMoviesByCategory(categoryName: .trending) { [weak self] movies, error in
+            guard let self = self else { return }
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let movies = movies {
+                self.movies = movies.results ?? []
+                self.view?.collectionReloadData()
+                self.startCollectionTimer()
+            }
+        }
+    }
+    
 }
 
 //MARK: - HomeViewModelInterface
 extension HomeVM: HomeViewModelInterface {
     func viewDidLoad() {
         view?.configureCollectionView()
-        startCollectionTimer()
+        fetchTrendingMovies()
     }
 }

@@ -39,7 +39,7 @@
             </constraints>
             <size key="customSize" width="310" height="101"/>
             <connections>
-                <outlet property="posterImage" destination="JZa-eq-RGL" id="7sJ-Lb-mqN"/>
+                <outlet property="posterImage" destination="JZa-eq-RGL" id="4IP-Br-2IZ"/>
                 <outlet property="titleLabel" destination="khb-j5-yl8" id="E08-gH-40K"/>
             </connections>
             <point key="canvasLocation" x="147.69230769230768" y="4.9763033175355451"/>

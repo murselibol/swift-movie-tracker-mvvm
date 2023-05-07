@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol MovieManagerInterface {
+protocol MovieServiceInterface {
     func getMoviesByCategory(categoryName: MovieCategory, complete: @escaping((MoviesModel?, Error?)->()))
 }
 
-class MovieManager: MovieManagerInterface {
+class MovieService: MovieServiceInterface {
     
     //MARK: - Variables
-    static let shared = MovieManager()
+    static let shared = MovieService()
     
     //MARK: - Fetch
     func getMoviesByCategory(categoryName: MovieCategory, complete: @escaping ((MoviesModel?, Error?) -> ())) {

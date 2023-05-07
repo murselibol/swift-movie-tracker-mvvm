@@ -12,6 +12,7 @@ protocol HomeViewInterface: AnyObject {
     func collectionPagingEnabled()
     func collectionPagingDisabled()
     func collectionScrollToItem(at indexPath: IndexPath)
+    func collectionReloadData()
 }
 
 final class HomeVC: UIViewController {
@@ -49,6 +50,10 @@ extension HomeVC: HomeViewInterface {
     func collectionScrollToItem(at indexPath: IndexPath) {
         highlightCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
+    
+    func collectionReloadData() {
+        highlightCollectionView.reloadData()
+    }
 }
 
 //MARK: - UICollectionView
@@ -59,7 +64,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HighlightCollectionCell = highlightCollectionView.dequeueCell(for: indexPath)
-        cell.setup(title: "Title \(indexPath.row)")
+        cell.setup(movie: viewModel.movies[indexPath.row])
         return cell
     }
     

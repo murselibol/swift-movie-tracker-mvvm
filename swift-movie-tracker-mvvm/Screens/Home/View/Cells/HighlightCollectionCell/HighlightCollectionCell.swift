@@ -14,11 +14,15 @@ final class HighlightCollectionCell: UICollectionViewCell, NibProtocol, ReusePro
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
-    func setup(title: String) {
-        titleLabel.text = title
+    func setup(movie: Movie) {
+        titleLabel.text = movie.originalTitle
+        guard let imagePath = movie.backdropPath else {
+            posterImage.loadURL(url: K.notFoundMovieImage)
+            return
+        }
+        posterImage.loadURLWithCdn(url: imagePath)
     }
 
 }
