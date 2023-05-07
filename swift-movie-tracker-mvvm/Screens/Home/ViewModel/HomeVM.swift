@@ -17,7 +17,8 @@ final class HomeVM {
     weak var view: HomeViewInterface?
     private let service = MovieService()
     
-    var movies: [Movie] = []
+    var trendingMovies: [Movie] = []
+    var selectedCategoryMovies: [Movie] = []
     private let selectedMovieCategory: MovieCategory = .nowPlaying
     private var timer = Timer()
     var pageControlIndex = 0
@@ -27,7 +28,7 @@ final class HomeVM {
     }
     
     @objc func moveToNextIndex() {
-        if pageControlIndex < movies.count {
+        if pageControlIndex < trendingMovies.count {
             updateCollectionIndex()
             pageControlIndex += 1
         } else {
@@ -54,9 +55,24 @@ final class HomeVM {
             }
             
             if let movies = movies {
-                self.movies = movies.results ?? []
+                self.trendingMovies = movies.results ?? []
                 self.view?.collectionReloadData()
                 self.startCollectionTimer()
+            }
+        }
+    }
+    
+    func fetchMoviesByCategory(){
+        service.getMoviesByCategory(categoryName: .nowPlaying) { [weak self] movies, error in
+            guard let self = self else { return }
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let movies = movies {
+                self.selectedCategoryMovies = movies.results ?? []
+                self.view?.tableReloadData()
             }
         }
     }
@@ -66,7 +82,10 @@ final class HomeVM {
 //MARK: - HomeViewModelInterface
 extension HomeVM: HomeViewModelInterface {
     func viewDidLoad() {
+        view?.configureVC()
         view?.configureCollectionView()
+        view?.configureTableView()
         fetchTrendingMovies()
+        fetchMoviesByCategory()
     }
 }
