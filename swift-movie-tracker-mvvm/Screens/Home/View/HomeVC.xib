@@ -19,8 +19,14 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1o-IS-9ba">
+                    <rect key="frame" x="10" y="47" width="370" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JIL-MR-4Rb">
-                    <rect key="frame" x="10" y="47" width="370" height="185"/>
+                    <rect key="frame" x="10" y="86" width="370" height="185"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="JIL-MR-4Rb" secondAttribute="height" multiplier="2:1" id="b54-IQ-rNq"/>
@@ -36,9 +42,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="L1o-IS-9ba" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="B6u-ZE-9GD"/>
+                <constraint firstItem="L1o-IS-9ba" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="KsP-em-HF1"/>
                 <constraint firstItem="JIL-MR-4Rb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Lhi-9t-KYf"/>
+                <constraint firstItem="JIL-MR-4Rb" firstAttribute="top" secondItem="L1o-IS-9ba" secondAttribute="bottom" constant="10" id="VJ1-ku-RiJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JIL-MR-4Rb" secondAttribute="trailing" constant="10" id="k8f-oV-qa4"/>
-                <constraint firstItem="JIL-MR-4Rb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ukd-Ll-fou"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="L1o-IS-9ba" secondAttribute="trailing" constant="10" id="zMP-02-dde"/>
             </constraints>
             <point key="canvasLocation" x="10.769230769230768" y="-11.374407582938389"/>
         </view>
