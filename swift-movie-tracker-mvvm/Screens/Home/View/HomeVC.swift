@@ -9,6 +9,8 @@ import UIKit
 
 protocol HomeViewInterface: AnyObject {
     func configureVC()
+    func configureNavigationBar()
+    
     func configureCollectionView()
     func collectionPagingEnabled()
     func collectionPagingDisabled()
@@ -33,13 +35,21 @@ final class HomeVC: UIViewController {
         viewModel.view = self
         viewModel.viewDidLoad()
     }
-    
 }
 
 //MARK: - HomeViewInterface
 extension HomeVC: HomeViewInterface {
     func configureVC() {
         self.title = "Moowift"
+    }
+    
+    func configureNavigationBar() {
+        if let filterImage = UIImage(named: "icon-filter") {
+            let resizedImage = filterImage.resize(to: CGSize(width: 22, height: 22))
+            let filterBarButton = UIBarButtonItem(image: resizedImage, style: .plain, target: self, action: nil)
+            filterBarButton.tintColor = .label
+            navigationItem.rightBarButtonItems = [filterBarButton]
+        }
     }
     
     //MARK: - Highlight Collection
@@ -95,6 +105,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         return CGSize(width: size.width, height: size.height)
     }
     
+//    TODO: It is currently listening to all scroll events. Modify it to only listen to the collection.
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offSet = scrollView.contentOffset.x
         let width = scrollView.frame.width

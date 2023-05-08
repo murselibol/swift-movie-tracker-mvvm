@@ -23,6 +23,8 @@ final class HomeVM {
     private var timer = Timer()
     var pageControlIndex = 0
     
+    
+    
     func startCollectionTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(moveToNextIndex), userInfo: nil, repeats: true)
     }
@@ -83,6 +85,7 @@ final class HomeVM {
 extension HomeVM: HomeViewModelInterface {
     func viewDidLoad() {
         view?.configureVC()
+        view?.configureNavigationBar()
         view?.configureCollectionView()
         view?.configureTableView()
         fetchTrendingMovies()

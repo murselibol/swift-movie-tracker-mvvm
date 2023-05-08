@@ -29,6 +29,7 @@
 		592E1A7A2A080128007DABBB /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E1A792A080128007DABBB /* UIImageView+Ext.swift */; };
 		592E1A832A081022007DABBB /* MovieTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E1A812A081022007DABBB /* MovieTableCell.swift */; };
 		592E1A842A081022007DABBB /* MovieTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592E1A822A081022007DABBB /* MovieTableCell.xib */; };
+		592E1A862A096F31007DABBB /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E1A852A096F31007DABBB /* UIImage+Ext.swift */; };
 		5FDC43A3DDDD6249DB4CD9F9 /* Pods_swift_movie_tracker_mvvm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E016160541FE9E98FAE89D8E /* Pods_swift_movie_tracker_mvvm.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		592E1A792A080128007DABBB /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		592E1A812A081022007DABBB /* MovieTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableCell.swift; sourceTree = "<group>"; };
 		592E1A822A081022007DABBB /* MovieTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableCell.xib; sourceTree = "<group>"; };
+		592E1A852A096F31007DABBB /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		D846A29C1DE38426C0FD6B52 /* Pods-swift-movie-tracker-mvvm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-movie-tracker-mvvm.debug.xcconfig"; path = "Target Support Files/Pods-swift-movie-tracker-mvvm/Pods-swift-movie-tracker-mvvm.debug.xcconfig"; sourceTree = "<group>"; };
 		E016160541FE9E98FAE89D8E /* Pods_swift_movie_tracker_mvvm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_movie_tracker_mvvm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 				5925E87B2A04325700D71D9F /* UICollectionView+Ext.swift */,
 				5925E87F2A0432AA00D71D9F /* UITableView+Ext.swift */,
 				592E1A792A080128007DABBB /* UIImageView+Ext.swift */,
+				592E1A852A096F31007DABBB /* UIImage+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				592E1A762A07F6AA007DABBB /* MoviesModel.swift in Sources */,
 				5925E8802A0432AA00D71D9F /* UITableView+Ext.swift in Sources */,
 				5925E87C2A04325700D71D9F /* UICollectionView+Ext.swift in Sources */,
+				592E1A862A096F31007DABBB /* UIImage+Ext.swift in Sources */,
 				592E1A832A081022007DABBB /* MovieTableCell.swift in Sources */,
 				5925E84B2A041BF500D71D9F /* SceneDelegate.swift in Sources */,
 			);
