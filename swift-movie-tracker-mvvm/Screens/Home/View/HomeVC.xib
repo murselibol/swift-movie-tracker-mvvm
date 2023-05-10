@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
             <connections>
                 <outlet property="highlightCollectionView" destination="JIL-MR-4Rb" id="dBA-gs-z28"/>
+                <outlet property="moviesTableTitle" destination="mAs-tw-B1f" id="OZy-Sr-6Mx"/>
                 <outlet property="moviesTableView" destination="5Mj-Gk-tIe" id="RA8-mI-8UX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

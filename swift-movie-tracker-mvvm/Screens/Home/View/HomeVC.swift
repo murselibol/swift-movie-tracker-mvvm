@@ -19,11 +19,13 @@ protocol HomeViewInterface: AnyObject {
     
     func configureTableView()
     func tableReloadData()
+    func updateMoviesTableTitle(title: String)
 }
 
 final class HomeVC: UIViewController {
     @IBOutlet private weak var highlightCollectionView: UICollectionView!
     @IBOutlet private weak var moviesTableView: UITableView!
+    @IBOutlet weak var moviesTableTitle: UILabel!
     
     private lazy var viewModel = HomeVM()
     
@@ -34,6 +36,17 @@ final class HomeVC: UIViewController {
 
         viewModel.view = self
         viewModel.viewDidLoad()
+    }
+    
+    @IBAction func pressedFilterButton() {
+        let sheetVC = FilterSheet()
+        sheetVC.viewModel.homeViewModel = self.viewModel
+        if let sheet = sheetVC.sheetPresentationController{
+            sheet.detents = [.medium()]
+            sheet.preferredCornerRadius = 24
+            sheet.prefersGrabberVisible = true
+        }
+        navigationController?.present(sheetVC, animated: true)
     }
 }
 
@@ -46,7 +59,7 @@ extension HomeVC: HomeViewInterface {
     func configureNavigationBar() {
         if let filterImage = UIImage(named: "icon-filter") {
             let resizedImage = filterImage.resize(to: CGSize(width: 22, height: 22))
-            let filterBarButton = UIBarButtonItem(image: resizedImage, style: .plain, target: self, action: nil)
+            let filterBarButton = UIBarButtonItem(image: resizedImage, style: .plain, target: self, action: #selector(pressedFilterButton))
             filterBarButton.tintColor = .label
             navigationItem.rightBarButtonItems = [filterBarButton]
         }
@@ -81,6 +94,10 @@ extension HomeVC: HomeViewInterface {
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
         moviesTableView.registerCell(type: MovieTableCell.self)
+    }
+    
+    func updateMoviesTableTitle(title: String) {
+        moviesTableTitle.text = title
     }
     
     func tableReloadData() {
@@ -123,7 +140,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieTableCell = moviesTableView.dequeueCell(for: indexPath)
-        cell.setup(movie: viewModel.selectedCategoryMovies[indexPath.row])
+        let movie: Movie = viewModel.selectedCategoryMovies[indexPath.row]
+        cell.setup(movie: movie)
         return cell
     }
     

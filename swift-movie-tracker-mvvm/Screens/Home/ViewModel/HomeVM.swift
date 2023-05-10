@@ -19,12 +19,26 @@ final class HomeVM {
     
     var trendingMovies: [Movie] = []
     var selectedCategoryMovies: [Movie] = []
-    private let selectedMovieCategory: MovieCategory = .nowPlaying
+    var selectedMovieCategory: MovieCategory = .nowPlaying
+    var categoryTitle: String {
+        switch selectedMovieCategory {
+        case .nowPlaying:
+            return "Now Playing"
+        case .popular:
+            return "Popular"
+        case .trending:
+            return "Trending"
+        case .topRated:
+            return "Top Rated"
+        case .upcoming:
+            return "Up Coming"
+        }
+    }
     private var timer = Timer()
     var pageControlIndex = 0
     
     
-    
+    //MARK: - Functions
     func startCollectionTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(moveToNextIndex), userInfo: nil, repeats: true)
     }
@@ -65,7 +79,7 @@ final class HomeVM {
     }
     
     func fetchMoviesByCategory(){
-        service.getMoviesByCategory(categoryName: .nowPlaying) { [weak self] movies, error in
+        service.getMoviesByCategory(categoryName: selectedMovieCategory) { [weak self] movies, error in
             guard let self = self else { return }
             if let error = error {
                 print("Error: \(error.localizedDescription)")
@@ -74,6 +88,7 @@ final class HomeVM {
             
             if let movies = movies {
                 self.selectedCategoryMovies = movies.results ?? []
+                self.view?.updateMoviesTableTitle(title: self.categoryTitle)
                 self.view?.tableReloadData()
             }
         }
