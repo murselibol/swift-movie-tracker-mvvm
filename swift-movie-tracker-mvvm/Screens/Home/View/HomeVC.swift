@@ -10,6 +10,7 @@ import UIKit
 protocol HomeViewInterface: AnyObject {
     func configureVC()
     func configureNavigationBar()
+    func filterButtonPressed()
     
     func configureCollectionView()
     func collectionPagingEnabled()
@@ -33,20 +34,9 @@ final class HomeVC: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         viewModel.view = self
         viewModel.viewDidLoad()
-    }
-    
-    @IBAction func pressedFilterButton() {
-        let sheetVC = FilterSheet()
-        sheetVC.viewModel.homeViewModel = self.viewModel
-        if let sheet = sheetVC.sheetPresentationController{
-            sheet.detents = [.medium()]
-            sheet.preferredCornerRadius = 24
-            sheet.prefersGrabberVisible = true
-        }
-        navigationController?.present(sheetVC, animated: true)
     }
 }
 
@@ -59,10 +49,15 @@ extension HomeVC: HomeViewInterface {
     func configureNavigationBar() {
         if let filterImage = UIImage(named: "icon-filter") {
             let resizedImage = filterImage.resize(to: CGSize(width: 22, height: 22))
-            let filterBarButton = UIBarButtonItem(image: resizedImage, style: .plain, target: self, action: #selector(pressedFilterButton))
+            let filterBarButton = UIBarButtonItem(image: resizedImage, style: .plain, target: self, action: #selector(filterButtonPressed))
             filterBarButton.tintColor = .label
             navigationItem.rightBarButtonItems = [filterBarButton]
         }
+    }
+    
+    @objc func filterButtonPressed() {
+        let filterSheet = viewModel.createFilterSheet()
+        navigationController?.present(filterSheet, animated: true, completion: nil)
     }
     
     //MARK: - Highlight Collection
@@ -122,7 +117,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         return CGSize(width: size.width, height: size.height)
     }
     
-//    TODO: It is currently listening to all scroll events. Modify it to only listen to the collection.
+    //    TODO: It is currently listening to all scroll events. Modify it to only listen to the collection.
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offSet = scrollView.contentOffset.x
         let width = scrollView.frame.width

@@ -11,6 +11,7 @@ protocol HomeViewModelInterface {
     var view: HomeViewInterface? { get set }
     
     func viewDidLoad()
+    func createFilterSheet() -> FilterSheet
 }
 
 final class HomeVM {
@@ -105,5 +106,16 @@ extension HomeVM: HomeViewModelInterface {
         view?.configureTableView()
         fetchTrendingMovies()
         fetchMoviesByCategory()
+    }
+    
+    func createFilterSheet() -> FilterSheet {
+        let filterSheet = FilterSheet()
+        filterSheet.viewModel.homeViewModel = self
+        if let sheet = filterSheet.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.preferredCornerRadius = 24
+            sheet.prefersGrabberVisible = true
+        }
+        return filterSheet
     }
 }
