@@ -36,6 +36,8 @@
 		592E1A912A097475007DABBB /* FilterTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592E1A8F2A097475007DABBB /* FilterTableCell.xib */; };
 		592E1A932A097996007DABBB /* FilterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E1A922A097996007DABBB /* FilterVM.swift */; };
 		592E1A952A0979EF007DABBB /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592E1A942A0979EF007DABBB /* FilterModel.swift */; };
+		5962C2C62A14298800C64427 /* GenreCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962C2C42A14298800C64427 /* GenreCollectionCell.swift */; };
+		5962C2C72A14298800C64427 /* GenreCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5962C2C52A14298800C64427 /* GenreCollectionCell.xib */; };
 		59E77E872A0CCAB3005217D8 /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E77E852A0CCAB3005217D8 /* MovieDetailVC.swift */; };
 		59E77E882A0CCAB3005217D8 /* MovieDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E77E862A0CCAB3005217D8 /* MovieDetailVC.xib */; };
 		59E77E8C2A0CCAE0005217D8 /* MovieDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E77E8B2A0CCAE0005217D8 /* MovieDetailVM.swift */; };
@@ -75,6 +77,8 @@
 		592E1A8F2A097475007DABBB /* FilterTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableCell.xib; sourceTree = "<group>"; };
 		592E1A922A097996007DABBB /* FilterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVM.swift; sourceTree = "<group>"; };
 		592E1A942A0979EF007DABBB /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		5962C2C42A14298800C64427 /* GenreCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionCell.swift; sourceTree = "<group>"; };
+		5962C2C52A14298800C64427 /* GenreCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionCell.xib; sourceTree = "<group>"; };
 		59E77E852A0CCAB3005217D8 /* MovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
 		59E77E862A0CCAB3005217D8 /* MovieDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailVC.xib; sourceTree = "<group>"; };
 		59E77E8B2A0CCAE0005217D8 /* MovieDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVM.swift; sourceTree = "<group>"; };
@@ -327,6 +331,23 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		5962C2C12A14294E00C64427 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5962C2C22A14295400C64427 /* GenreCollectionCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5962C2C22A14295400C64427 /* GenreCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				5962C2C42A14298800C64427 /* GenreCollectionCell.swift */,
+				5962C2C52A14298800C64427 /* GenreCollectionCell.xib */,
+			);
+			path = GenreCollectionCell;
+			sourceTree = "<group>";
+		};
 		59E77E812A0CC9D8005217D8 /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +368,7 @@
 		59E77E832A0CCA68005217D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5962C2C12A14294E00C64427 /* Cells */,
 				59E77E852A0CCAB3005217D8 /* MovieDetailVC.swift */,
 				59E77E862A0CCAB3005217D8 /* MovieDetailVC.xib */,
 			);
@@ -426,6 +448,7 @@
 				5925E8882A04369000D71D9F /* HomeVC.xib in Resources */,
 				592E1A912A097475007DABBB /* FilterTableCell.xib in Resources */,
 				5925E8552A041BF600D71D9F /* LaunchScreen.storyboard in Resources */,
+				5962C2C72A14298800C64427 /* GenreCollectionCell.xib in Resources */,
 				5925E8522A041BF600D71D9F /* Assets.xcassets in Resources */,
 				59E77E882A0CCAB3005217D8 /* MovieDetailVC.xib in Resources */,
 				592E1A842A081022007DABBB /* MovieTableCell.xib in Resources */,
@@ -487,6 +510,7 @@
 				5925E86D2A0422C000D71D9F /* TabBarController.swift in Sources */,
 				5925E8872A04369000D71D9F /* HomeVC.swift in Sources */,
 				592E1A782A0800E1007DABBB /* Constant.swift in Sources */,
+				5962C2C62A14298800C64427 /* GenreCollectionCell.swift in Sources */,
 				592E1A6D2A07F2D9007DABBB /* NetworkHelper.swift in Sources */,
 				5925E8792A04304C00D71D9F /* HighlightCollectionCell.swift in Sources */,
 				592E1A6F2A07F2E1007DABBB /* NetworkManager.swift in Sources */,
