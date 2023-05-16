@@ -29,6 +29,7 @@ final class HomeVC: UIViewController {
     @IBOutlet weak var moviesTableTitle: UILabel!
     
     private lazy var viewModel = HomeVM()
+    private let highlightCollectionIdentifier = "highlightCollectionView"
     
     
     //MARK: - Life Cycle
@@ -62,6 +63,7 @@ extension HomeVC: HomeViewInterface {
     
     //MARK: - Highlight Collection
     func configureCollectionView() {
+        highlightCollectionView.accessibilityIdentifier = highlightCollectionIdentifier
         highlightCollectionView.delegate = self
         highlightCollectionView.dataSource = self
         highlightCollectionView.registerCell(type: HighlightCollectionCell.self)
@@ -101,7 +103,7 @@ extension HomeVC: HomeViewInterface {
 }
 
 //MARK: - UICollectionView
-extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.trendingMovies.count
     }
@@ -117,15 +119,25 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
         return CGSize(width: size.width, height: size.height)
     }
     
-    //    TODO: It is currently listening to all scroll events. Modify it to only listen to the collection.
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-        let horizontalCenter = width / 2
-        let newIndex = Int(offSet + horizontalCenter) / Int(width)
-        viewModel.pageControlIndex = newIndex
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if scrollView.accessibilityIdentifier == highlightCollectionIdentifier {
+            self.viewModel.timer.invalidate()
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.accessibilityIdentifier == highlightCollectionIdentifier {
+            self.viewModel.startCollectionTimer()
+            let offSet = scrollView.contentOffset.x
+            let width = scrollView.frame.width
+            let horizontalCenter = width / 2
+            let newIndex = Int(offSet + horizontalCenter) / Int(width)
+            viewModel.pageControlIndex = newIndex
+        }
     }
 }
+
 
 //MARK: - UITableView
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {

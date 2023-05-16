@@ -35,13 +35,14 @@ final class HomeVM {
             return "Up Coming"
         }
     }
-    private var timer = Timer()
+    var timer = Timer()
     var pageControlIndex = 0
     
     
     //MARK: - Functions
     func startCollectionTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(moveToNextIndex), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
     @objc func moveToNextIndex() {
