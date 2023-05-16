@@ -127,6 +127,10 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UIScroll
         return CGSize(width: size.width, height: size.height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath, cellType: .highlight)
+    }
+    
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if scrollView.accessibilityIdentifier == highlightCollectionIdentifier {
@@ -165,6 +169,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectTableItem(at: indexPath)
+        viewModel.didSelectItem(at: indexPath, cellType: .category)
     }
 }

@@ -17,7 +17,7 @@ protocol HomeViewModelInterface {
     
     func viewDidLoad()
     func createFilterSheet() -> FilterSheet
-    func didSelectTableItem(at indexPath: IndexPath)
+    func didSelectItem(at indexPath: IndexPath, cellType: MoviesSectionType)
 }
 
 final class HomeVM {
@@ -27,7 +27,7 @@ final class HomeVM {
     var trendingMovies: [Movie] = []
     var selectedCategoryMovies: [Movie] = []
     var selectedMovieCategory: MovieCategory = .nowPlaying
-    var categoryTitle: String {
+    private var categoryTitle: String {
         switch selectedMovieCategory {
         case .nowPlaying:
             return "Now Playing"
@@ -41,6 +41,7 @@ final class HomeVM {
             return "Up Coming"
         }
     }
+    
     var timer = Timer()
     var pageControlIndex = 0
     
@@ -77,6 +78,7 @@ final class HomeVM {
             return selectedCategoryMovies[index].id
         }
     }
+    
     
     //MARK: - Network Functions
     func fetchTrendingMovies() {
@@ -135,8 +137,8 @@ extension HomeVM: HomeViewModelInterface {
         return filterSheet
     }
     
-    func didSelectTableItem(at indexPath: IndexPath) {
-        guard let movieId = selectedCategoryMovies[indexPath.row].id else { return }
+    func didSelectItem(at indexPath: IndexPath, cellType: MoviesSectionType) {
+        guard let movieId = getSelectedMovieId(index: indexPath.row, type: cellType) else { return }
         let movieDetailVC = MovieDetailVC(id: movieId)
         self.view?.navigateToDetailScreen(vc: movieDetailVC)
     }
