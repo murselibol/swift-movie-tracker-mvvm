@@ -12,6 +12,7 @@ protocol HomeViewModelInterface {
     
     func viewDidLoad()
     func createFilterSheet() -> FilterSheet
+    func didSelectTableItem(at indexPath: IndexPath)
 }
 
 final class HomeVM {
@@ -118,5 +119,11 @@ extension HomeVM: HomeViewModelInterface {
             sheet.prefersGrabberVisible = true
         }
         return filterSheet
+    }
+    
+    func didSelectTableItem(at indexPath: IndexPath) {
+        guard let movieId = selectedCategoryMovies[indexPath.row].id else { return }
+        let movieDetailVC = MovieDetailVC(id: movieId)
+        self.view?.navigateToDetailScreen(vc: movieDetailVC)
     }
 }

@@ -21,6 +21,8 @@ protocol HomeViewInterface: AnyObject {
     func configureTableView()
     func tableReloadData()
     func updateMoviesTableTitle(title: String)
+    
+    func navigateToDetailScreen(vc: UIViewController)
 }
 
 final class HomeVC: UIViewController {
@@ -61,6 +63,10 @@ extension HomeVC: HomeViewInterface {
         navigationController?.present(filterSheet, animated: true, completion: nil)
     }
     
+    func navigateToDetailScreen(vc: UIViewController) {
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     //MARK: - Highlight Collection
     func configureCollectionView() {
         highlightCollectionView.accessibilityIdentifier = highlightCollectionIdentifier
@@ -86,6 +92,7 @@ extension HomeVC: HomeViewInterface {
         highlightCollectionView.reloadData()
     }
     
+    
     //MARK: - Movies Table
     func configureTableView() {
         moviesTableView.delegate = self
@@ -100,6 +107,7 @@ extension HomeVC: HomeViewInterface {
     func tableReloadData() {
         moviesTableView.reloadData()
     }
+    
 }
 
 //MARK: - UICollectionView
@@ -154,5 +162,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         220 // Cell Image Height: 200 (+20 space)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectTableItem(at: indexPath)
     }
 }
