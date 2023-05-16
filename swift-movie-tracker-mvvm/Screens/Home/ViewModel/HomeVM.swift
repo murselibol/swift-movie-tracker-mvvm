@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum MoviesSectionType {
+    case highlight
+    case category
+}
+
 protocol HomeViewModelInterface {
     var view: HomeViewInterface? { get set }
     
@@ -62,6 +67,15 @@ final class HomeVM {
         view?.collectionPagingDisabled()
         view?.collectionScrollToItem(at: indexPath)
         view?.collectionPagingEnabled()
+    }
+    
+    func getSelectedMovieId(index: Int, type: MoviesSectionType) -> Int? {
+        switch type {
+        case .highlight:
+            return trendingMovies[index].id
+        case .category:
+            return selectedCategoryMovies[index].id
+        }
     }
     
     //MARK: - Network Functions
