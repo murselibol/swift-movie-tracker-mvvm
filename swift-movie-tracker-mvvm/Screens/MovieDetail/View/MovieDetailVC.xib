@@ -10,6 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailVC" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
             <connections>
+                <outlet property="backdropImage" destination="j9s-p0-0Fd" id="pSV-bE-uSy"/>
+                <outlet property="castCollectionView" destination="xTK-Zy-Eom" id="VGc-W7-7Wo"/>
+                <outlet property="genreCollectionView" destination="UY5-7W-Hnv" id="Njg-qc-NwU"/>
+                <outlet property="imdbLabel" destination="eR2-1g-x4f" id="kbA-Id-TPP"/>
+                <outlet property="overviewLabel" destination="s2w-ek-7l6" id="KYW-XO-CPK"/>
+                <outlet property="releaseDateLabel" destination="G4o-Mh-4co" id="NLQ-tN-Je7"/>
+                <outlet property="timeLabel" destination="vyq-6j-Pvs" id="MzJ-5P-fIL"/>
+                <outlet property="titleLabel" destination="GNT-uA-1Qa" id="bb7-u3-vna"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,26 +26,26 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-p0-0Fd">
-                    <rect key="frame" x="0.0" y="0.0" width="390" height="195"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-p0-0Fd">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="292.66666666666669"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="j9s-p0-0Fd" secondAttribute="height" multiplier="2:1" id="3Bn-HJ-ajP"/>
+                        <constraint firstAttribute="width" secondItem="j9s-p0-0Fd" secondAttribute="height" multiplier="2:1.5" id="3Bn-HJ-ajP"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE AMAZING SPIDER-MAN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNT-uA-1Qa">
-                    <rect key="frame" x="10" y="215" width="370" height="26.333333333333343"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                    <rect key="frame" x="10" y="312.66666666666669" width="370" height="32.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="27"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ko0-ol-60D">
-                    <rect key="frame" x="10" y="251.33333333333334" width="370" height="20.333333333333343"/>
+                    <rect key="frame" x="10" y="355" width="370" height="20.333333333333314"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wex-KH-eMM">
                             <rect key="frame" x="39.333333333333343" y="0.0" width="291.66666666666663" height="20.333333333333332"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-DR-XwA">
-                                    <rect key="frame" x="0.0" y="2.3333333333333144" width="93.333333333333329" height="16"/>
+                                    <rect key="frame" x="0.0" y="2" width="93.333333333333329" height="16"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WUG-7Y-NuN">
                                             <rect key="frame" x="0.0" y="-0.33333333333333215" width="16" height="15.666666666666664"/>
@@ -61,7 +69,7 @@
                                     <color key="tintColor" systemColor="systemGrayColor"/>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="eqv-4x-vgd">
-                                    <rect key="frame" x="119" y="2.3333333333333144" width="97.333333333333314" height="16"/>
+                                    <rect key="frame" x="119" y="2" width="97.333333333333314" height="16"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4Hi-bW-T4f">
                                             <rect key="frame" x="0.0" y="0.99999999999999822" width="16" height="14.666666666666668"/>
@@ -85,7 +93,7 @@
                                     <color key="tintColor" systemColor="systemGrayColor"/>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="K62-P0-Mub">
-                                    <rect key="frame" x="241.99999999999997" y="2.3333333333333144" width="49.666666666666657" height="16"/>
+                                    <rect key="frame" x="241.99999999999997" y="2" width="49.666666666666657" height="16"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jEu-tH-M1C">
                                             <rect key="frame" x="0.0" y="1.6666666666666643" width="16" height="13.000000000000004"/>
@@ -109,7 +117,7 @@
                     </subviews>
                 </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UY5-7W-Hnv">
-                    <rect key="frame" x="0.0" y="283.66666666666669" width="390" height="50"/>
+                    <rect key="frame" x="0.0" y="387.33333333333331" width="390" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Ta3-8k-9Uq"/>
@@ -121,27 +129,27 @@
                         <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjH-W9-y4z">
-                    <rect key="frame" x="10" y="348.66666666666669" width="370" height="21.666666666666686"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjH-W9-y4z">
+                    <rect key="frame" x="10" y="452.33333333333331" width="370" height="28.666666666666686"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2w-ek-7l6">
-                    <rect key="frame" x="10" y="375.33333333333331" width="370" height="83.666666666666686"/>
+                    <rect key="frame" x="10" y="486.00000000000006" width="370" height="83.666666666666686"/>
                     <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBf-bW-iBM">
-                    <rect key="frame" x="10" y="474" width="370" height="21.666666666666686"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                    <rect key="frame" x="10" y="584.66666666666663" width="370" height="28.666666666666629"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xTK-Zy-Eom">
-                    <rect key="frame" x="0.0" y="500.66666666666674" width="390" height="90"/>
+                    <rect key="frame" x="0.0" y="618.33333333333337" width="390" height="90"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="AG3-GG-9J4"/>

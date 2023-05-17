@@ -10,9 +10,7 @@ import Foundation
 protocol MovieDetailViewModelInterface {
     var view: MovieDetailViewInterface? { get set }
     
-    
     func viewDidLoad()
-    
 }
 
 final class MovieDetailVM {
@@ -31,6 +29,7 @@ final class MovieDetailVM {
             
             if let movie = movie {
                 self.movie = movie
+                self.view?.configureMovieData(movie: movie)
             }
         }
     }
@@ -39,10 +38,7 @@ final class MovieDetailVM {
 
 extension MovieDetailVM: MovieDetailViewModelInterface {
     func viewDidLoad() {
-        
         guard let movieId = view?.movieId else { return }
         getMovie(id: movieId)
     }
-    
-    
 }
