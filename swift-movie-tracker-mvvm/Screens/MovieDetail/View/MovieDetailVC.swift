@@ -8,17 +8,16 @@
 import UIKit
 
 protocol MovieDetailViewInterface: AnyObject {
-    
+    var movieId: Int { get }
 }
 
 class MovieDetailVC: UIViewController {
-    var movieID: Int
-    
+    var movieId: Int
     private lazy var viewModel = MovieDetailVM()
     
     
     init(id: Int) {
-        self.movieID = id
+        self.movieId = id
         super.init(nibName: nil, bundle: nil)
     }
 
