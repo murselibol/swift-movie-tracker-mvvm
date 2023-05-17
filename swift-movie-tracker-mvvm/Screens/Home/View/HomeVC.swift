@@ -31,7 +31,6 @@ final class HomeVC: UIViewController {
     @IBOutlet weak var moviesTableTitle: UILabel!
     
     private lazy var viewModel = HomeVM()
-    private let highlightCollectionIdentifier = "highlightCollectionView"
     
     
     //MARK: - Life Cycle
@@ -69,7 +68,6 @@ extension HomeVC: HomeViewInterface {
     
     //MARK: - Highlight Collection
     func configureCollectionView() {
-        highlightCollectionView.accessibilityIdentifier = highlightCollectionIdentifier
         highlightCollectionView.delegate = self
         highlightCollectionView.dataSource = self
         highlightCollectionView.registerCell(type: HighlightCollectionCell.self)
@@ -133,13 +131,13 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UIScroll
     
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        if scrollView.accessibilityIdentifier == highlightCollectionIdentifier {
+        if scrollView == highlightCollectionView {
             self.viewModel.timer.invalidate()
         }
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.accessibilityIdentifier == highlightCollectionIdentifier {
+        if scrollView == highlightCollectionView {
             self.viewModel.startCollectionTimer()
             let offSet = scrollView.contentOffset.x
             let width = scrollView.frame.width
