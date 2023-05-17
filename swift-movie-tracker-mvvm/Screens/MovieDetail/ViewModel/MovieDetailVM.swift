@@ -8,13 +8,21 @@
 import Foundation
 
 protocol MovieDetailViewModelInterface {
+    var view: MovieDetailViewInterface? { get set }
+    
+    func viewDidLoad()
     
 }
 
 final class MovieDetailVM {
+    weak var view: MovieDetailViewInterface?
     
 }
 
 extension MovieDetailVM: MovieDetailViewModelInterface {
+    func viewDidLoad() {
+        print("DidLoad")
+    }
+    
     
 }

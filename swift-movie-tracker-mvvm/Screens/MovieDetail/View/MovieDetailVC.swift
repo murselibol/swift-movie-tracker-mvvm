@@ -7,12 +7,14 @@
 
 import UIKit
 
-protocol MovieDetailViewInterface {
-    var movieId: Int { get set }
+protocol MovieDetailViewInterface: AnyObject {
+    
 }
 
 class MovieDetailVC: UIViewController {
     var movieID: Int
+    
+    private lazy var viewModel = MovieDetailVM()
     
     
     init(id: Int) {
@@ -27,10 +29,12 @@ class MovieDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.view = self
+        viewModel.viewDidLoad()
     }
 }
 
 
-extension MovieDetailVC: MovieDetailViewModelInterface {
+extension MovieDetailVC: MovieDetailViewInterface {
 
 }
