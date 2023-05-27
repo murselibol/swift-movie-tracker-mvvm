@@ -34,7 +34,6 @@ extension MovieSearchVC: MovieSearchViewInterface {
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
         moviesTableView.registerCell(type: MovieTableCell.self)
-        moviesTableView.layer.cornerRadius = 8
     }
     
     func moviesTableReloadData() {

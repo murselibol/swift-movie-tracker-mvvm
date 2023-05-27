@@ -15,13 +15,32 @@ protocol MovieSearchViewModelInterface {
 
 final class MovieSearchVM {
     var view: MovieSearchViewInterface?
+    private let movieService = MovieService()
     var movies: [Movie] = []
+    
+    //MARK: - Network Functions
+    func getMoviesByName(text: String) {
+        movieService.getMoviesByName(name: text) { [weak self] movies, error in
+            guard let self = self else { return }
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let movies = movies {
+                self.movies = movies.results ?? []
+                self.view?.moviesTableReloadData()
+            }
+        }
+    }
     
 }
 
 extension MovieSearchVM: MovieSearchViewModelInterface {
     func viewDidLoad() {
         print("viewDidLoad")
+        view?.configureMoviesTableView()
+        getMoviesByName(text: "John")
     }
     
 }
