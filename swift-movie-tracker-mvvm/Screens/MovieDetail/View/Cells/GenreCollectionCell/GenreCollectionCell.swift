@@ -13,10 +13,10 @@ class GenreCollectionCell: UICollectionViewCell, NibProtocol, ReuseProtocol {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configureGenreButton()
+        configureUI()
     }
     
-    func configureGenreButton() {
+    func configureUI() {
         genreButton.layer.cornerRadius = genreButton.frame.width * 0.1
         genreButton.layer.borderWidth = 0.8
         genreButton.layer.borderColor = UIColor.white.cgColor
