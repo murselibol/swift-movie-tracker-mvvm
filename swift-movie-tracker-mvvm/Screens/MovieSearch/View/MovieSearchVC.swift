@@ -7,13 +7,24 @@
 
 import UIKit
 
-class MovieSearchVC: UIViewController {
+protocol MovieSearchViewInterface: AnyObject {
+    
+    
+}
+
+final class MovieSearchVC: UIViewController {
+    
+    private lazy var viewModel = MovieSearchVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        viewModel.view = self
+        viewModel.viewDidLoad()
     }
 
+}
 
+extension MovieSearchVC: MovieSearchViewInterface {
+    
 }
