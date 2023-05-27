@@ -9,6 +9,7 @@ import UIKit
 
 protocol MovieSearchViewInterface: AnyObject {
     func configureMoviesTableView()
+    func moviesTableReloadData()
     
 }
 
@@ -34,6 +35,10 @@ extension MovieSearchVC: MovieSearchViewInterface {
         moviesTableView.dataSource = self
         moviesTableView.registerCell(type: MovieTableCell.self)
         moviesTableView.layer.cornerRadius = 8
+    }
+    
+    func moviesTableReloadData() {
+        moviesTableView.reloadData()
     }
 }
 
