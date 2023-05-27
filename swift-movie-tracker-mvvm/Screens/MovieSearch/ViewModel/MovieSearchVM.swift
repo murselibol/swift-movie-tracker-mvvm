@@ -15,6 +15,8 @@ protocol MovieSearchViewModelInterface {
 
 final class MovieSearchVM {
     var view: MovieSearchViewInterface?
+    var movies: [Movie] = []
+    
 }
 
 extension MovieSearchVM: MovieSearchViewModelInterface {
