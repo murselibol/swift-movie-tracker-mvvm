@@ -9,10 +9,13 @@ import Foundation
 
 protocol MovieServiceInterface {
     func getMoviesByCategory(categoryName: MovieCategory, complete: @escaping((MoviesModel?, Error?)->()))
+    func getMoviesByName(name: String, complete: @escaping((MoviesModel?, Error?)->()))
     func getMovie(id: Int, complete: @escaping((MovieModel?, Error?)->()))
 }
 
 class MovieService: MovieServiceInterface {
+
+    
     
     //MARK: - Variables
     static let shared = MovieService()
@@ -33,6 +36,18 @@ class MovieService: MovieServiceInterface {
             url = MoviesEndpoint.upcoming.path
         }
         
+        NetworkManager.shared.request(type: MoviesModel.self, url: url, method: .get) { response in
+            switch response {
+            case .success(let data):
+                complete(data, nil)
+            case .failure(let error):
+                complete(nil, error)
+            }
+        }
+    }
+    
+    func getMoviesByName(name: String, complete: @escaping ((MoviesModel?, Error?) -> ())) {
+        let url = NetworkHelper.shared.requestUrl(url: "search/movie")+"&query=\(name)"
         NetworkManager.shared.request(type: MoviesModel.self, url: url, method: .get) { response in
             switch response {
             case .success(let data):

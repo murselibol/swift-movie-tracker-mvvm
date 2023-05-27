@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieSearchVC" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
             <connections>
-                <outlet property="moviesTableView" destination="j8G-jF-Gyq" id="J8V-eu-4LL"/>
+                <outlet property="moviesTableView" destination="j8G-jF-Gyq" id="Six-C0-1aw"/>
                 <outlet property="searchText" destination="nQc-BA-ocr" id="fCg-S1-SmL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
