@@ -140,7 +140,7 @@ extension HomeVM: HomeViewModelInterface {
     }
     
     func navigateSearchVC() {
-        self.view?.navigateController(vc: HomeVC())
+        self.view?.navigateController(vc: MovieSearchVC())
     }
     
     func didSelectItem(at indexPath: IndexPath, cellType: MoviesSectionType) {
