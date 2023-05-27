@@ -11,6 +11,7 @@ protocol MovieSearchViewModelInterface {
     var view: MovieSearchViewInterface? { get set }
     
     func viewDidLoad()
+    func searchTextFieldDidChangeSelection(searchText: String)
 }
 
 final class MovieSearchVM {
@@ -38,9 +39,19 @@ final class MovieSearchVM {
 
 extension MovieSearchVM: MovieSearchViewModelInterface {
     func viewDidLoad() {
-        print("viewDidLoad")
+        view?.configureSearchTextField()
         view?.configureMoviesTableView()
-        getMoviesByName(text: "John")
+    }
+    
+    func searchTextFieldDidChangeSelection(searchText: String) {
+        if searchText == "" {
+            getMoviesByName(text: searchText)
+            return
+        }
+        guard searchText.count > 2 else { return }
+
+        let text = searchText.replacingOccurrences(of: " ", with: "+")
+        getMoviesByName(text: text)
     }
     
 }

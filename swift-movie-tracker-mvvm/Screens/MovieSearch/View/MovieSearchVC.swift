@@ -8,6 +8,7 @@
 import UIKit
 
 protocol MovieSearchViewInterface: AnyObject {
+    func configureSearchTextField()
     func configureMoviesTableView()
     func moviesTableReloadData()
     
@@ -30,6 +31,9 @@ final class MovieSearchVC: UIViewController {
 }
 
 extension MovieSearchVC: MovieSearchViewInterface {
+    func configureSearchTextField() {
+        searchText.delegate = self
+    }
     func configureMoviesTableView() {
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
@@ -58,4 +62,12 @@ extension MovieSearchVC: UITableViewDelegate, UITableViewDataSource {
         220 // Cell Image Height: 200 (+20 space)
     }
 }
+
+//MARK: - UITextFieldDelegate
+extension MovieSearchVC: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        viewModel.searchTextFieldDidChangeSelection(searchText: searchText.text!)
+    }
+}
+
 
