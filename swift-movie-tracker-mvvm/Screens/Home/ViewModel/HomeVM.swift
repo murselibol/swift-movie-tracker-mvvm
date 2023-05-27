@@ -16,7 +16,8 @@ protocol HomeViewModelInterface {
     var view: HomeViewInterface? { get set }
     
     func viewDidLoad()
-    func createFilterSheet() -> FilterSheet
+    func openFilterSheet()
+    func navigateSearchVC()
     func didSelectItem(at indexPath: IndexPath, cellType: MoviesSectionType)
 }
 
@@ -126,7 +127,7 @@ extension HomeVM: HomeViewModelInterface {
         fetchMoviesByCategory()
     }
     
-    func createFilterSheet() -> FilterSheet {
+    func openFilterSheet() {
         let filterSheet = FilterSheet()
         filterSheet.viewModel.homeViewModel = self
         if let sheet = filterSheet.sheetPresentationController {
@@ -134,12 +135,17 @@ extension HomeVM: HomeViewModelInterface {
             sheet.preferredCornerRadius = 24
             sheet.prefersGrabberVisible = true
         }
-        return filterSheet
+        
+        self.view?.navigatePresent(vc: filterSheet)
+    }
+    
+    func navigateSearchVC() {
+        self.view?.navigateController(vc: HomeVC())
     }
     
     func didSelectItem(at indexPath: IndexPath, cellType: MoviesSectionType) {
         guard let movieId = getSelectedMovieId(index: indexPath.row, type: cellType) else { return }
         let movieDetailVC = MovieDetailVC(id: movieId)
-        self.view?.navigateToDetailScreen(vc: movieDetailVC)
+        self.view?.navigateController(vc: movieDetailVC)
     }
 }

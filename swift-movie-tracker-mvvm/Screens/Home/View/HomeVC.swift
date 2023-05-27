@@ -22,7 +22,8 @@ protocol HomeViewInterface: AnyObject {
     func tableReloadData()
     func updateMoviesTableTitle(title: String)
     
-    func navigateToDetailScreen(vc: UIViewController)
+    func navigatePresent(vc: UIViewController)
+    func navigateController(vc: UIViewController)
 }
 
 final class HomeVC: UIViewController {
@@ -49,21 +50,35 @@ extension HomeVC: HomeViewInterface {
     }
     
     func configureNavigationBar() {
-        if let filterImage = UIImage(named: "icon-filter") {
-            let resizedImage = filterImage.resize(to: CGSize(width: 22, height: 22))
-            let filterBarButton = UIBarButtonItem(image: resizedImage, style: .plain, target: self, action: #selector(filterButtonPressed))
-            filterBarButton.tintColor = .label
-            navigationItem.rightBarButtonItems = [filterBarButton]
-        }
+        let filterImage = UIImage(named: "icon-filter")
+        let resizedFilterImage = filterImage!.resize(to: CGSize(width: 22, height: 22))
+        let filterBarButton = UIBarButtonItem(image: resizedFilterImage, style: .plain, target: self, action: #selector(filterButtonPressed))
+        filterBarButton.tintColor = .label
+        
+        let searchImage = UIImage(systemName: "magnifyingglass")
+        let resizedSearchImage = searchImage!.resize(to: CGSize(width: 22, height: 22))
+        let searchBarButton = UIBarButtonItem(image: resizedSearchImage, style: .plain, target: self, action: #selector(searchButtonPressed))
+        searchBarButton.tintColor = .label
+        
+            
+        navigationItem.rightBarButtonItems = [filterBarButton, searchBarButton]
+        
     }
     
     @objc func filterButtonPressed() {
-        let filterSheet = viewModel.createFilterSheet()
-        navigationController?.present(filterSheet, animated: true, completion: nil)
+        viewModel.openFilterSheet()
     }
     
-    func navigateToDetailScreen(vc: UIViewController) {
+    @objc func searchButtonPressed() {
+        viewModel.navigateSearchVC()
+    }
+    
+    func navigateController(vc: UIViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func navigatePresent(vc: UIViewController) {
+        navigationController?.present(vc, animated: true, completion: nil)
     }
     
     //MARK: - Highlight Collection
