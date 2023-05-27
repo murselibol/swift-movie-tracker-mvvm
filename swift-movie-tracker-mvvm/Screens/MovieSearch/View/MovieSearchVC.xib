@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieSearchVC" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
             <connections>
+                <outlet property="moviesTableView" destination="j8G-jF-Gyq" id="J8V-eu-4LL"/>
+                <outlet property="searchText" destination="nQc-BA-ocr" id="fCg-S1-SmL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,22 +20,38 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mw0-K4-cS8">
-                    <rect key="frame" x="161" y="324" width="54" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nQc-BA-ocr">
+                    <rect key="frame" x="10" y="47" width="370" height="34"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="j8G-jF-Gyq">
+                    <rect key="frame" x="10" y="101" width="370" height="709"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="j8G-jF-Gyq" firstAttribute="top" secondItem="nQc-BA-ocr" secondAttribute="bottom" constant="20" id="2e2-6b-KhK"/>
+                <constraint firstItem="j8G-jF-Gyq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="FFM-Kq-FVP"/>
+                <constraint firstItem="nQc-BA-ocr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="cTI-FM-xjf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j8G-jF-Gyq" secondAttribute="trailing" constant="10" id="f7k-mo-b7p"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="j8G-jF-Gyq" secondAttribute="bottom" id="fFZ-VF-o2f"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nQc-BA-ocr" secondAttribute="trailing" constant="10" id="hQr-TN-ot6"/>
+                <constraint firstItem="nQc-BA-ocr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rot-Uo-RiB"/>
+            </constraints>
             <point key="canvasLocation" x="37" y="-11"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
