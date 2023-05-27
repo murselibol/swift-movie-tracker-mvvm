@@ -17,9 +17,7 @@ class CastCollectionCell: UICollectionViewCell, NibProtocol, ReuseProtocol {
     }
     
     func configureUI() {
-        castImage.layer.cornerRadius = 10
-//        castImage.layer.borderWidth = 0.8
-//        castImage.layer.borderColor = UIColor.white.cgColor
+        castImage.layer.cornerRadius = 6
     }
     
     func setup(cast: Cast) {

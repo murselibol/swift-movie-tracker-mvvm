@@ -47,6 +47,7 @@ final class MovieDetailVM {
             
             if let casts = res {
                 self.casts = casts.cast
+                self.view?.castReloadData()
             }
         }
     }
@@ -56,6 +57,7 @@ final class MovieDetailVM {
 extension MovieDetailVM: MovieDetailViewModelInterface {
     func viewDidLoad() {
         view?.configureGenreCollectionView()
+        view?.configureCastCollectionView()
         
         guard let movieId = view?.movieId else { return }
         getMovie(id: movieId)
