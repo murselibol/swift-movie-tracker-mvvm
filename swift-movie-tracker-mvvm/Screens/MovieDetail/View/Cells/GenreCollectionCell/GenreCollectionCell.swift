@@ -9,22 +9,21 @@ import UIKit
 
 class GenreCollectionCell: UICollectionViewCell, NibProtocol, ReuseProtocol {
 
-    @IBOutlet private weak var genreButton: UIButton!
+    @IBOutlet weak var genreButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureGenreButton()
     }
     
-    
     func configureGenreButton() {
-        genreButton.layer.cornerRadius = 20
-        genreButton.layer.borderWidth = 1
-        genreButton.layer.borderColor = UIColor.systemBackground.cgColor
+        genreButton.layer.cornerRadius = genreButton.frame.width * 0.1
+        genreButton.layer.borderWidth = 0.8
+        genreButton.layer.borderColor = UIColor.white.cgColor
     }
     
     func setup(genre: String) {
-        genreButton.titleLabel?.text = genre
+        genreButton.setTitle(genre, for: .normal)
     }
 
 }

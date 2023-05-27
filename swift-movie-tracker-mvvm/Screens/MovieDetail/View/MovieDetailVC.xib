@@ -116,40 +116,40 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UY5-7W-Hnv">
-                    <rect key="frame" x="0.0" y="387.33333333333331" width="390" height="50"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UY5-7W-Hnv">
+                    <rect key="frame" x="0.0" y="390.33333333333331" width="390" height="30"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="Ta3-8k-9Uq"/>
+                        <constraint firstAttribute="height" constant="30" id="Ta3-8k-9Uq"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="gtl-Un-6kE">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="gtl-Un-6kE">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjH-W9-y4z">
-                    <rect key="frame" x="10" y="452.33333333333331" width="370" height="28.666666666666686"/>
+                    <rect key="frame" x="10" y="438.33333333333331" width="370" height="28.666666666666686"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2w-ek-7l6">
-                    <rect key="frame" x="10" y="486.00000000000006" width="370" height="83.666666666666686"/>
+                    <rect key="frame" x="10" y="472.00000000000006" width="370" height="83.666666666666686"/>
                     <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBf-bW-iBM">
-                    <rect key="frame" x="10" y="584.66666666666663" width="370" height="28.666666666666629"/>
+                    <rect key="frame" x="10" y="570.66666666666663" width="370" height="28.666666666666629"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xTK-Zy-Eom">
-                    <rect key="frame" x="0.0" y="618.33333333333337" width="390" height="90"/>
+                    <rect key="frame" x="0.0" y="604.33333333333337" width="390" height="90"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="AG3-GG-9J4"/>
@@ -168,7 +168,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tBf-bW-iBM" secondAttribute="trailing" constant="10" id="0DQ-gR-SgJ"/>
                 <constraint firstItem="s2w-ek-7l6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="2lo-dh-GnJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xTK-Zy-Eom" secondAttribute="trailing" id="4i3-hv-W1z"/>
-                <constraint firstItem="UY5-7W-Hnv" firstAttribute="top" secondItem="Ko0-ol-60D" secondAttribute="bottom" constant="12" id="5hO-jf-Gl9"/>
+                <constraint firstItem="UY5-7W-Hnv" firstAttribute="top" secondItem="Ko0-ol-60D" secondAttribute="bottom" constant="15" id="5hO-jf-Gl9"/>
                 <constraint firstItem="GNT-uA-1Qa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="7cq-lD-AGT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GNT-uA-1Qa" secondAttribute="trailing" constant="10" id="ACp-fZ-l6E"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ko0-ol-60D" secondAttribute="trailing" constant="10" id="B8R-CD-qIH"/>
@@ -184,7 +184,7 @@
                 <constraint firstItem="tBf-bW-iBM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="bDR-kT-nXV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j9s-p0-0Fd" secondAttribute="trailing" id="cYl-OA-uMW"/>
                 <constraint firstItem="Ko0-ol-60D" firstAttribute="top" secondItem="GNT-uA-1Qa" secondAttribute="bottom" constant="10" id="g0e-0Q-cBE"/>
-                <constraint firstItem="DjH-W9-y4z" firstAttribute="top" secondItem="UY5-7W-Hnv" secondAttribute="bottom" constant="15" id="hq2-7N-DtQ"/>
+                <constraint firstItem="DjH-W9-y4z" firstAttribute="top" secondItem="UY5-7W-Hnv" secondAttribute="bottom" constant="18" id="hq2-7N-DtQ"/>
                 <constraint firstItem="DjH-W9-y4z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="mfO-cE-6ug"/>
                 <constraint firstItem="j9s-p0-0Fd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pxx-5e-vuh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s2w-ek-7l6" secondAttribute="trailing" constant="10" id="q8q-zb-P6b"/>

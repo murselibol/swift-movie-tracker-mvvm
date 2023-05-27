@@ -10,10 +10,13 @@ import UIKit
 protocol MovieDetailViewInterface: AnyObject {
     var movieId: Int { get }
     
+    func configureGenreCollectionView()
+    func genreReloadData()
+    
     func configureMovieData(movie: MovieModel)
 }
 
-class MovieDetailVC: UIViewController {
+final class MovieDetailVC: UIViewController {
     
     @IBOutlet weak var backdropImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -55,4 +58,36 @@ extension MovieDetailVC: MovieDetailViewInterface {
         timeLabel.text = "\(movie.runtime) Minutes"
         releaseDateLabel.text = "\(movie.releaseDate.prefix(4))"
     }
+    
+    func configureGenreCollectionView() {
+       genreCollectionView.delegate = self
+       genreCollectionView.dataSource = self
+       genreCollectionView.registerCell(type: GenreCollectionCell.self)
+    }
+    
+    func genreReloadData () {
+        genreCollectionView.reloadData()
+    }
+}
+
+//MARK: - UICollectionView
+extension MovieDetailVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.movie?.genres.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: GenreCollectionCell = genreCollectionView.dequeueCell(for: indexPath)
+        cell.setup(genre: viewModel.movie?.genres[indexPath.item].name ?? "N/A")
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // TODO: @mursel - make dynamic width
+        return CGSize(width: 110, height: collectionView.frame.height)
+        
+    }
+    
+    
+    
 }
