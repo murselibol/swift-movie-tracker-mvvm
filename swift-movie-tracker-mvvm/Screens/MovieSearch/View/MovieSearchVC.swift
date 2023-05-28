@@ -8,10 +8,11 @@
 import UIKit
 
 protocol MovieSearchViewInterface: AnyObject {
+    func configureVC()
     func configureSearchTextField()
-    func becomeFirstResponder()
-    
     func configureMoviesTableView()
+    
+    func becomeFirstResponder()
     func moviesTableReloadData()
     
     func navigateController(vc: UIViewController, animate: Bool)
@@ -39,17 +40,22 @@ final class MovieSearchVC: UIViewController {
 }
 
 extension MovieSearchVC: MovieSearchViewInterface {
+    func configureVC() {
+        self.title = "Movie Search"
+    }
+    
     func configureSearchTextField() {
         searchText.delegate = self
     }
     
-    func becomeFirstResponder() {
-        searchText.becomeFirstResponder()
-    }
     func configureMoviesTableView() {
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
         moviesTableView.registerCell(type: MovieTableCell.self)
+    }
+    
+    func becomeFirstResponder() {
+        searchText.becomeFirstResponder()
     }
     
     func moviesTableReloadData() {

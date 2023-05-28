@@ -41,6 +41,7 @@ final class MovieSearchVM {
 
 extension MovieSearchVM: MovieSearchViewModelInterface {
     func viewDidLoad() {
+        view?.configureVC()
         view?.configureSearchTextField()
         view?.configureMoviesTableView()
     }
