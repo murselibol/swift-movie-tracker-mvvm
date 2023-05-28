@@ -15,14 +15,14 @@ protocol MovieDetailViewModelInterface {
 
 final class MovieDetailVM {
     weak var view: MovieDetailViewInterface?
-    private let service = MovieService()
+    private let movieService = MovieService()
     private let castService = CastService()
     
     var movie: MovieModel?
     var casts: [Cast]?
     
     func getMovie(id: Int) {
-        service.getMovie(id: id) { [weak self] res, error in
+        movieService.getMovie(id: id) { [weak self] res, error in
             guard let self = self else { return }
             if let error = error {
                 print("Error: \(error.localizedDescription)")

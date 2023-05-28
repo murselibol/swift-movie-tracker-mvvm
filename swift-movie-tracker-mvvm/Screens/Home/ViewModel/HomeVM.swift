@@ -23,7 +23,7 @@ protocol HomeViewModelInterface {
 
 final class HomeVM {
     weak var view: HomeViewInterface?
-    private let service = MovieService()
+    private let movieService = MovieService()
     
     var trendingMovies: [Movie] = []
     var selectedCategoryMovies: [Movie] = []
@@ -83,7 +83,7 @@ final class HomeVM {
     
     //MARK: - Network Functions
     func fetchTrendingMovies() {
-        service.getMoviesByCategory(categoryName: .trending) { [weak self] movies, error in
+        movieService.getMoviesByCategory(categoryName: .trending) { [weak self] movies, error in
             guard let self = self else { return }
             if let error = error {
                 print("Error: \(error.localizedDescription)")
@@ -99,7 +99,7 @@ final class HomeVM {
     }
     
     func fetchMoviesByCategory(){
-        service.getMoviesByCategory(categoryName: selectedMovieCategory) { [weak self] movies, error in
+        movieService.getMoviesByCategory(categoryName: selectedMovieCategory) { [weak self] movies, error in
             guard let self = self else { return }
             if let error = error {
                 print("Error: \(error.localizedDescription)")
