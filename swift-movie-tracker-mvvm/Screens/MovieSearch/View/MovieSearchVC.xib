@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieSearchVC" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
             <connections>
+                <outlet property="loadingIndicator" destination="cPr-ym-RvU" id="Os2-bS-XNB"/>
                 <outlet property="moviesTableView" destination="j8G-jF-Gyq" id="Six-C0-1aw"/>
                 <outlet property="searchTextField" destination="nQc-BA-ocr" id="sHU-qz-AeM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,6 +32,9 @@
                     <rect key="frame" x="10" y="101" width="370" height="709"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="cPr-ym-RvU">
+                    <rect key="frame" x="185" y="445" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -41,7 +45,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j8G-jF-Gyq" secondAttribute="trailing" constant="10" id="f7k-mo-b7p"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="j8G-jF-Gyq" secondAttribute="bottom" id="fFZ-VF-o2f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nQc-BA-ocr" secondAttribute="trailing" constant="10" id="hQr-TN-ot6"/>
+                <constraint firstItem="cPr-ym-RvU" firstAttribute="centerY" secondItem="j8G-jF-Gyq" secondAttribute="centerY" id="jxL-hf-vSY"/>
                 <constraint firstItem="nQc-BA-ocr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rot-Uo-RiB"/>
+                <constraint firstItem="cPr-ym-RvU" firstAttribute="centerX" secondItem="j8G-jF-Gyq" secondAttribute="centerX" id="xMN-1m-gzW"/>
             </constraints>
             <point key="canvasLocation" x="37" y="-11"/>
         </view>

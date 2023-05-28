@@ -10,6 +10,9 @@ import UIKit
 protocol MovieSearchViewInterface: AnyObject {
     var searchText: String { get }
     
+    func startLoadingIndicator()
+    func stopLoadingIndicator()
+    
     func configureVC()
     func configureSearchTextField()
     func configureMoviesTableView()
@@ -23,8 +26,9 @@ protocol MovieSearchViewInterface: AnyObject {
 
 final class MovieSearchVC: UIViewController {
     
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var moviesTableView: UITableView!
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var moviesTableView: UITableView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
     private lazy var viewModel = MovieSearchVM()
 
@@ -44,6 +48,14 @@ final class MovieSearchVC: UIViewController {
 extension MovieSearchVC: MovieSearchViewInterface {
     var searchText: String {
         self.searchTextField.text!
+    }
+    
+    func startLoadingIndicator() {
+        loadingIndicator.startAnimating()
+    }
+    
+    func stopLoadingIndicator() {
+        loadingIndicator.stopAnimating()
     }
     
     func configureVC() {

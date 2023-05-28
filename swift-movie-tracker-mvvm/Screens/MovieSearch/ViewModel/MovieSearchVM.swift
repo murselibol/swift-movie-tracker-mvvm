@@ -33,6 +33,8 @@ final class MovieSearchVM {
     func getMoviesByName(text: String) {
         movieService.getMoviesByName(name: text, page: page) { [weak self] res, error in
             guard let self = self else { return }
+            self.view?.startLoadingIndicator()
+            
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
@@ -42,6 +44,7 @@ final class MovieSearchVM {
                 self.movies.append(contentsOf: movies)
                 self.page += 1
                 self.view?.moviesTableReloadData()
+                self.view?.stopLoadingIndicator()
             }
         }
     }
@@ -50,6 +53,7 @@ final class MovieSearchVM {
 
 extension MovieSearchVM: MovieSearchViewModelInterface {
     func viewDidLoad() {
+        view?.stopLoadingIndicator()
         view?.configureVC()
         view?.configureSearchTextField()
         view?.configureMoviesTableView()
@@ -74,7 +78,6 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
     
     func moviesTableWillDisplay(){
         guard let searchText = view?.searchText else { return }
-        
         getMoviesByName(text: searchText)
     }
 
