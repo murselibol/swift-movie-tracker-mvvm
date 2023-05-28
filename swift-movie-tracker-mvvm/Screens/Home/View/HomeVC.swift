@@ -22,8 +22,8 @@ protocol HomeViewInterface: AnyObject {
     func tableReloadData()
     func updateMoviesTableTitle(title: String)
     
-    func navigatePresent(vc: UIViewController)
-    func navigateController(vc: UIViewController)
+    func navigatePresent(vc: UIViewController, animate: Bool)
+    func navigateController(vc: UIViewController, animate: Bool)
 }
 
 final class HomeVC: UIViewController {
@@ -73,12 +73,12 @@ extension HomeVC: HomeViewInterface {
         viewModel.navigateSearchVC()
     }
     
-    func navigateController(vc: UIViewController) {
-        self.navigationController?.pushViewController(vc, animated: true)
+    func navigateController(vc: UIViewController, animate: Bool) {
+        self.navigationController?.pushViewController(vc, animated: animate)
     }
     
-    func navigatePresent(vc: UIViewController) {
-        navigationController?.present(vc, animated: true, completion: nil)
+    func navigatePresent(vc: UIViewController, animate: Bool) {
+        navigationController?.present(vc, animated: animate)
     }
     
     //MARK: - Highlight Collection

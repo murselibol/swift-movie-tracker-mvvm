@@ -136,16 +136,16 @@ extension HomeVM: HomeViewModelInterface {
             sheet.prefersGrabberVisible = true
         }
         
-        self.view?.navigatePresent(vc: filterSheet)
+        self.view?.navigatePresent(vc: filterSheet, animate: true)
     }
     
     func navigateSearchVC() {
-        self.view?.navigateController(vc: MovieSearchVC())
+        self.view?.navigateController(vc: MovieSearchVC(), animate: true)
     }
     
     func didSelectItem(at indexPath: IndexPath, cellType: MoviesSectionType) {
         guard let movieId = getSelectedMovieId(index: indexPath.row, type: cellType) else { return }
         let movieDetailVC = MovieDetailVC(id: movieId)
-        self.view?.navigateController(vc: movieDetailVC)
+        self.view?.navigateController(vc: movieDetailVC, animate: true)
     }
 }
