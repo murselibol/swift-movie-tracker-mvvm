@@ -20,10 +20,11 @@ final class MovieSearchVM {
     var view: MovieSearchViewInterface?
     private let movieService = MovieService()
     var movies: [Movie] = []
+    private var page: Int = 1
     
     //MARK: - Network Functions
     func getMoviesByName(text: String) {
-        movieService.getMoviesByName(name: text) { [weak self] movies, error in
+        movieService.getMoviesByName(name: text, page: page) { [weak self] movies, error in
             guard let self = self else { return }
             if let error = error {
                 print("Error: \(error.localizedDescription)")
