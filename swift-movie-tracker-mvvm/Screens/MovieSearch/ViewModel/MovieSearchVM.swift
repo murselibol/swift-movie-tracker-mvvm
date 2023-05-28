@@ -14,6 +14,7 @@ protocol MovieSearchViewModelInterface {
     func viewDidAppear()
     func searchTextFieldDidChangeSelection(searchText: String)
     func didSelectItem(at indexPath: IndexPath)
+    func moviesTableWillDisplay()
 }
 
 final class MovieSearchVM {
@@ -22,17 +23,24 @@ final class MovieSearchVM {
     var movies: [Movie] = []
     private var page: Int = 1
     
+    func resetMoviesTableData() {
+        self.movies = []
+        self.page = 1
+        view?.moviesTableReloadData()
+    }
+    
     //MARK: - Network Functions
     func getMoviesByName(text: String) {
-        movieService.getMoviesByName(name: text, page: page) { [weak self] movies, error in
+        movieService.getMoviesByName(name: text, page: page) { [weak self] res, error in
             guard let self = self else { return }
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
             }
             
-            if let movies = movies {
-                self.movies = movies.results ?? []
+            if let movies = res?.results {
+                self.movies.append(contentsOf: movies)
+                self.page += 1
                 self.view?.moviesTableReloadData()
             }
         }
@@ -52,20 +60,22 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
     }
     
     func searchTextFieldDidChangeSelection(searchText: String) {
-        if searchText == "" {
-            getMoviesByName(text: searchText)
-            return
-        }
+        resetMoviesTableData()
         guard searchText.count > 2 else { return }
-
         let text = searchText.replacingOccurrences(of: " ", with: "+")
         getMoviesByName(text: text)
     }
+    
     func didSelectItem(at indexPath: IndexPath) {
         guard let movieId = movies[indexPath.row].id else { return }
         let movieDetailVC = MovieDetailVC(id: movieId)
         self.view?.navigateController(vc: movieDetailVC, animate: true)
     }
     
+    func moviesTableWillDisplay(){
+        guard let searchText = view?.searchText else { return }
+        
+        getMoviesByName(text: searchText)
+    }
 
 }

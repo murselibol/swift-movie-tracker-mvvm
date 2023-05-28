@@ -8,6 +8,8 @@
 import UIKit
 
 protocol MovieSearchViewInterface: AnyObject {
+    var searchText: String { get }
+    
     func configureVC()
     func configureSearchTextField()
     func configureMoviesTableView()
@@ -21,7 +23,7 @@ protocol MovieSearchViewInterface: AnyObject {
 
 final class MovieSearchVC: UIViewController {
     
-    @IBOutlet weak var searchText: UITextField!
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var moviesTableView: UITableView!
     
     private lazy var viewModel = MovieSearchVM()
@@ -40,13 +42,17 @@ final class MovieSearchVC: UIViewController {
 }
 
 extension MovieSearchVC: MovieSearchViewInterface {
+    var searchText: String {
+        self.searchTextField.text!
+    }
+    
     func configureVC() {
         self.title = "Movie Search"
         self.navigationController?.setCustomBackButton()
     }
     
     func configureSearchTextField() {
-        searchText.delegate = self
+        searchTextField.delegate = self
     }
     
     func configureMoviesTableView() {
@@ -56,7 +62,7 @@ extension MovieSearchVC: MovieSearchViewInterface {
     }
     
     func becomeFirstResponder() {
-        searchText.becomeFirstResponder()
+        searchTextField.becomeFirstResponder()
     }
     
     func moviesTableReloadData() {
@@ -88,12 +94,20 @@ extension MovieSearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectItem(at: indexPath)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
+
+        if indexPath.row == lastRowIndex - 2 {
+            viewModel.moviesTableWillDisplay()
+        }
+    }
 }
 
 //MARK: - UITextFieldDelegate
 extension MovieSearchVC: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        viewModel.searchTextFieldDidChangeSelection(searchText: searchText.text!)
+        viewModel.searchTextFieldDidChangeSelection(searchText: searchTextField.text!)
     }
 }
 
