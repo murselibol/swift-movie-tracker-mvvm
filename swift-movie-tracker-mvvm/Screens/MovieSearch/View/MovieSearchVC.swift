@@ -42,6 +42,7 @@ final class MovieSearchVC: UIViewController {
 extension MovieSearchVC: MovieSearchViewInterface {
     func configureVC() {
         self.title = "Movie Search"
+        self.navigationController?.setCustomBackButton()
     }
     
     func configureSearchTextField() {

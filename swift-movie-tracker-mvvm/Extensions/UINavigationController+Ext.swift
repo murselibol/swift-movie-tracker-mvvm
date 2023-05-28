@@ -9,7 +9,7 @@ import UIKit
 
 extension UINavigationController {
     func setCustomBackButton(imageName: String = "chevron.backward", title: String = "", color: UIColor = .white) {
-        let image = UIImage(systemName: imageName)?.resize(to: CGSize(width: 15, height: 20))
+        let image = UIImage(systemName: imageName)
         
         navigationBar.backIndicatorImage = image
         navigationBar.backIndicatorTransitionMaskImage = image
