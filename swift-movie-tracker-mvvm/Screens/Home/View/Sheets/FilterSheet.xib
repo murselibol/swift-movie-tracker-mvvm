@@ -20,13 +20,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9a-GB-2fL">
-                    <rect key="frame" x="10" y="77" width="370" height="36"/>
+                    <rect key="frame" x="20" y="77" width="360" height="36"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zUu-H4-1kA">
-                    <rect key="frame" x="10" y="133" width="370" height="654"/>
+                    <rect key="frame" x="20" y="133" width="360" height="654"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -36,8 +36,8 @@
                 <constraint firstItem="h9a-GB-2fL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="16g-Bg-p2Z"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="h9a-GB-2fL" secondAttribute="trailing" constant="10" id="8YU-hx-Hnh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zUu-H4-1kA" secondAttribute="bottom" id="Hp7-dy-5sm"/>
-                <constraint firstItem="zUu-H4-1kA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="LZd-SY-zft"/>
-                <constraint firstItem="h9a-GB-2fL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="NzL-Mo-bvF"/>
+                <constraint firstItem="zUu-H4-1kA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LZd-SY-zft"/>
+                <constraint firstItem="h9a-GB-2fL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NzL-Mo-bvF"/>
                 <constraint firstItem="zUu-H4-1kA" firstAttribute="top" secondItem="h9a-GB-2fL" secondAttribute="bottom" constant="20" id="PJB-JO-z6I"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zUu-H4-1kA" secondAttribute="trailing" constant="10" id="qb1-oM-ZTW"/>
             </constraints>
