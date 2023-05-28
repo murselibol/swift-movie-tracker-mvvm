@@ -12,6 +12,7 @@ protocol MovieSearchViewModelInterface {
     
     func viewDidLoad()
     func searchTextFieldDidChangeSelection(searchText: String)
+    func didSelectItem(at indexPath: IndexPath)
 }
 
 final class MovieSearchVM {
@@ -53,5 +54,11 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
         let text = searchText.replacingOccurrences(of: " ", with: "+")
         getMoviesByName(text: text)
     }
+    func didSelectItem(at indexPath: IndexPath) {
+        guard let movieId = movies[indexPath.row].id else { return }
+        let movieDetailVC = MovieDetailVC(id: movieId)
+        self.view?.navigateController(vc: movieDetailVC, animate: true)
+    }
     
+
 }

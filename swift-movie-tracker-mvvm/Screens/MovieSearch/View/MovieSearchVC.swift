@@ -9,8 +9,11 @@ import UIKit
 
 protocol MovieSearchViewInterface: AnyObject {
     func configureSearchTextField()
+    
     func configureMoviesTableView()
     func moviesTableReloadData()
+    
+    func navigateController(vc: UIViewController, animate: Bool)
     
 }
 
@@ -43,6 +46,10 @@ extension MovieSearchVC: MovieSearchViewInterface {
     func moviesTableReloadData() {
         moviesTableView.reloadData()
     }
+
+    func navigateController(vc: UIViewController, animate: Bool) {
+        self.navigationController?.pushViewController(vc, animated: animate)
+    }
 }
 
 //MARK: - UITableView
@@ -60,6 +67,10 @@ extension MovieSearchVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         220 // Cell Image Height: 200 (+20 space)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath)
     }
 }
 
