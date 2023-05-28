@@ -25,7 +25,7 @@ final class MovieTableCell: UITableViewCell, NibProtocol, ReuseProtocol {
     func setup(movie: Movie) {
         titleLabel.text = movie.originalTitle
         summaryLabel.text = movie.overview
-        imdbLabel.text = "\(movie.voteAverage ?? 0) / 10 IMDB"
+        imdbLabel.text = String(format: "%.1f", movie.voteAverage ?? 0)+"/10 IMDb"
         guard let imagePath = movie.posterPath else {
             posterImage.loadURL(url: K.notFoundMovieImage)
             return
