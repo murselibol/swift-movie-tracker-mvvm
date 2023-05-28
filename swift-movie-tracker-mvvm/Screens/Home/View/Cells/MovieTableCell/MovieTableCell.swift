@@ -7,11 +7,11 @@
 
 import UIKit
 
-class MovieTableCell: UITableViewCell, NibProtocol, ReuseProtocol {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var imdbLabel: UILabel!
-    @IBOutlet weak var posterImage: UIImageView!
+final class MovieTableCell: UITableViewCell, NibProtocol, ReuseProtocol {
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var summaryLabel: UILabel!
+    @IBOutlet private weak var imdbLabel: UILabel!
+    @IBOutlet private weak var posterImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

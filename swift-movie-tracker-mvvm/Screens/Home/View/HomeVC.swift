@@ -29,7 +29,7 @@ protocol HomeViewInterface: AnyObject {
 final class HomeVC: UIViewController {
     @IBOutlet private weak var highlightCollectionView: UICollectionView!
     @IBOutlet private weak var moviesTableView: UITableView!
-    @IBOutlet weak var moviesTableTitle: UILabel!
+    @IBOutlet private weak var moviesTableTitle: UILabel!
     
     private lazy var viewModel = HomeVM()
     

@@ -7,8 +7,8 @@
 
 import UIKit
 
-class FilterTableCell: UITableViewCell, NibProtocol, ReuseProtocol {
-    @IBOutlet weak var filterItemLabel: UILabel!
+final class FilterTableCell: UITableViewCell, NibProtocol, ReuseProtocol {
+    @IBOutlet private weak var filterItemLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CastCollectionCell: UICollectionViewCell, NibProtocol, ReuseProtocol {
+final class CastCollectionCell: UICollectionViewCell, NibProtocol, ReuseProtocol {
 
-    @IBOutlet weak var castImage: UIImageView!
+    @IBOutlet private weak var castImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class GenreCollectionCell: UICollectionViewCell, NibProtocol, ReuseProtocol {
+final class GenreCollectionCell: UICollectionViewCell, NibProtocol, ReuseProtocol {
 
-    @IBOutlet weak var genreButton: UIButton!
+    @IBOutlet private weak var genreButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -21,14 +21,14 @@ protocol MovieDetailViewInterface: AnyObject {
 
 final class MovieDetailVC: UIViewController {
     
-    @IBOutlet weak var backdropImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var imdbLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var genreCollectionView: UICollectionView!
-    @IBOutlet weak var overviewLabel: UILabel!
-    @IBOutlet weak var castCollectionView: UICollectionView!
+    @IBOutlet private weak var backdropImage: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var imdbLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var releaseDateLabel: UILabel!
+    @IBOutlet private weak var genreCollectionView: UICollectionView!
+    @IBOutlet private weak var overviewLabel: UILabel!
+    @IBOutlet private weak var castCollectionView: UICollectionView!
     
     
     var movieId: Int
