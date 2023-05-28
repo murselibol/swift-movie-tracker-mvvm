@@ -10,6 +10,7 @@ import UIKit
 protocol MovieDetailViewInterface: AnyObject {
     var movieId: Int { get }
     
+    func configureVC()
     func configureGenreCollectionView()
     func genreReloadData()
     func configureCastCollectionView()
@@ -53,6 +54,10 @@ final class MovieDetailVC: UIViewController {
 
 
 extension MovieDetailVC: MovieDetailViewInterface {
+    func configureVC() {
+        self.navigationController?.setCustomBackButton(imageName: "chevron.backward.circle")
+    }
+    
     func configureMovieData(movie: MovieModel) {
         backdropImage.loadURLWithCdn(url: movie.backdropPath)
         titleLabel.text = movie.originalTitle

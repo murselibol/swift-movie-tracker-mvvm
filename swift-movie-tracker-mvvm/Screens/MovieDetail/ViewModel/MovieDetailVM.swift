@@ -56,6 +56,7 @@ final class MovieDetailVM {
 
 extension MovieDetailVM: MovieDetailViewModelInterface {
     func viewDidLoad() {
+        view?.configureVC()
         view?.configureGenreCollectionView()
         view?.configureCastCollectionView()
         
@@ -63,4 +64,6 @@ extension MovieDetailVM: MovieDetailViewModelInterface {
         getMovie(id: movieId)
         getCasts(id: movieId)
     }
+    
+    
 }
