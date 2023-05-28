@@ -11,6 +11,7 @@ protocol MovieSearchViewModelInterface {
     var view: MovieSearchViewInterface? { get set }
     
     func viewDidLoad()
+    func viewDidAppear()
     func searchTextFieldDidChangeSelection(searchText: String)
     func didSelectItem(at indexPath: IndexPath)
 }
@@ -42,6 +43,10 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
     func viewDidLoad() {
         view?.configureSearchTextField()
         view?.configureMoviesTableView()
+    }
+    
+    func viewDidAppear(){
+        view?.becomeFirstResponder()
     }
     
     func searchTextFieldDidChangeSelection(searchText: String) {

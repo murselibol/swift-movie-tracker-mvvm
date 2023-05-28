@@ -9,6 +9,7 @@ import UIKit
 
 protocol MovieSearchViewInterface: AnyObject {
     func configureSearchTextField()
+    func becomeFirstResponder()
     
     func configureMoviesTableView()
     func moviesTableReloadData()
@@ -30,12 +31,20 @@ final class MovieSearchVC: UIViewController {
         viewModel.view = self
         viewModel.viewDidLoad()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.viewDidAppear()
+    }
 
 }
 
 extension MovieSearchVC: MovieSearchViewInterface {
     func configureSearchTextField() {
         searchText.delegate = self
+    }
+    
+    func becomeFirstResponder() {
+        searchText.becomeFirstResponder()
     }
     func configureMoviesTableView() {
         moviesTableView.delegate = self
