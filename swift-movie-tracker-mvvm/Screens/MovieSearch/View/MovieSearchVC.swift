@@ -65,6 +65,7 @@ extension MovieSearchVC: MovieSearchViewInterface {
     
     func configureSearchTextField() {
         searchTextField.delegate = self
+        searchTextField.addIconToRight(image: UIImage(systemName: "magnifyingglass")!)
     }
     
     func configureMoviesTableView() {
