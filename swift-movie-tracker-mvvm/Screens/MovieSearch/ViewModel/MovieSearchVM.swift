@@ -23,14 +23,28 @@ final class MovieSearchVM {
     var movies: [Movie] = []
     private var page: Int = 1
     
-    func resetMoviesTableData() {
+    private func resetMoviesTableData() {
         self.movies = []
         self.page = 1
         view?.moviesTableReloadData()
+        self.changeVisibleItem(hide: .table)
+    }
+    
+    private func changeVisibleItem(hide: SearchVisibleItem) {
+        switch hide {
+        case .placeholder:
+            view?.hiddenMoviesTable(state: false)
+            view?.hiddenPlaceholderTextView(state: true)
+            break
+        case .table:
+            view?.hiddenMoviesTable(state: true)
+            view?.hiddenPlaceholderTextView(state: false)
+            break
+        }
     }
     
     //MARK: - Network Functions
-    func getMoviesByName(text: String) {
+    private func getMoviesByName(text: String) {
         movieService.getMoviesByName(name: text, page: page) { [weak self] res, error in
             guard let self = self else { return }
             self.view?.startLoadingIndicator()
@@ -44,6 +58,7 @@ final class MovieSearchVM {
                 self.movies.append(contentsOf: movies)
                 self.page += 1
                 self.view?.moviesTableReloadData()
+                if movies.count == 0 { self.changeVisibleItem(hide: .table) }
                 self.view?.stopLoadingIndicator()
             }
         }
@@ -57,6 +72,8 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
         view?.configureVC()
         view?.configureSearchTextField()
         view?.configureMoviesTableView()
+        view?.updatePlaceholder(text: "Sorry, no matches found for your search term.")
+        self.changeVisibleItem(hide: .table)
     }
     
     func viewDidAppear(){
@@ -66,6 +83,7 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
     func searchTextFieldDidChangeSelection(searchText: String) {
         resetMoviesTableData()
         guard searchText.count > 2 else { return }
+        self.changeVisibleItem(hide: .placeholder)
         let text = searchText.replacingOccurrences(of: " ", with: "+")
         getMoviesByName(text: text)
     }
