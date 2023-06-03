@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum SearchVisibleItem {
+    case placeholder, table
+}
+
 protocol MovieSearchViewInterface: AnyObject {
     var searchText: String { get }
     
@@ -19,6 +23,10 @@ protocol MovieSearchViewInterface: AnyObject {
     
     func becomeFirstResponder()
     func moviesTableReloadData()
+    func updatePlaceholder(text: String)
+    
+    func hiddenMoviesTable(state: Bool)
+    func hiddenPlaceholderTextView(state: Bool)
     
     func navigateController(vc: UIViewController, animate: Bool)
     
@@ -29,6 +37,7 @@ final class MovieSearchVC: UIViewController {
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var moviesTableView: UITableView!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var placeholderTextView: PlaceholderTextView!
     
     private lazy var viewModel = MovieSearchVM()
 
@@ -37,6 +46,7 @@ final class MovieSearchVC: UIViewController {
 
         viewModel.view = self
         viewModel.viewDidLoad()
+        moviesTableView.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,6 +92,19 @@ extension MovieSearchVC: MovieSearchViewInterface {
         moviesTableView.reloadData()
     }
 
+    func updatePlaceholder(text: String) {
+        placeholderTextView.setup(text: text)
+    }
+   
+    
+    func hiddenMoviesTable(state: Bool) {
+        moviesTableView.isHidden = state
+    }
+    
+    func hiddenPlaceholderTextView(state: Bool) {
+        placeholderTextView.isHidden = state
+    }
+    
     func navigateController(vc: UIViewController, animate: Bool) {
         self.navigationController?.pushViewController(vc, animated: animate)
     }

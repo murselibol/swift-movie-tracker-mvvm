@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="loadingIndicator" destination="cPr-ym-RvU" id="Os2-bS-XNB"/>
                 <outlet property="moviesTableView" destination="j8G-jF-Gyq" id="Six-C0-1aw"/>
+                <outlet property="placeholderTextView" destination="oBj-a4-7Ra" id="sSn-kR-nAi"/>
                 <outlet property="searchTextField" destination="nQc-BA-ocr" id="sHU-qz-AeM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,6 +29,10 @@
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBj-a4-7Ra" customClass="PlaceholderTextView" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
+                    <rect key="frame" x="10" y="91" width="370" height="719"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="j8G-jF-Gyq">
                     <rect key="frame" x="10" y="101" width="370" height="709"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,10 +51,14 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="j8G-jF-Gyq" secondAttribute="bottom" id="fFZ-VF-o2f"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nQc-BA-ocr" secondAttribute="trailing" constant="10" id="hQr-TN-ot6"/>
                 <constraint firstItem="cPr-ym-RvU" firstAttribute="centerY" secondItem="j8G-jF-Gyq" secondAttribute="centerY" id="jxL-hf-vSY"/>
+                <constraint firstItem="oBj-a4-7Ra" firstAttribute="top" secondItem="nQc-BA-ocr" secondAttribute="bottom" constant="10" id="mI0-BW-Da2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="oBj-a4-7Ra" secondAttribute="bottom" id="mVM-ef-ehN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oBj-a4-7Ra" secondAttribute="trailing" constant="10" id="nbP-GZ-9Du"/>
+                <constraint firstItem="oBj-a4-7Ra" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="njD-5g-YqJ"/>
                 <constraint firstItem="nQc-BA-ocr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rot-Uo-RiB"/>
                 <constraint firstItem="cPr-ym-RvU" firstAttribute="centerX" secondItem="j8G-jF-Gyq" secondAttribute="centerX" id="xMN-1m-gzW"/>
             </constraints>
-            <point key="canvasLocation" x="37" y="-11"/>
+            <point key="canvasLocation" x="36.92307692307692" y="-11.374407582938389"/>
         </view>
     </objects>
     <resources>
