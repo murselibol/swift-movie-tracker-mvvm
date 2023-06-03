@@ -152,12 +152,14 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UIScroll
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.viewModel.startCollectionTimer()
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-        let horizontalCenter = width / 2
-        let newIndex = Int(offSet + horizontalCenter) / Int(width) + 1
-        viewModel.pageControlIndex = newIndex
+        if scrollView == highlightCollectionView {
+            self.viewModel.startCollectionTimer()
+            let offSet = scrollView.contentOffset.x
+            let width = scrollView.frame.width
+            let horizontalCenter = width / 2
+            let newIndex = Int(offSet + horizontalCenter) / Int(width) + 1
+            viewModel.pageControlIndex = newIndex
+        }
     }
 }
 
