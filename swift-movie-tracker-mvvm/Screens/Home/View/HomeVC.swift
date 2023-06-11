@@ -30,6 +30,7 @@ final class HomeVC: UIViewController {
     @IBOutlet private weak var highlightCollectionView: UICollectionView!
     @IBOutlet private weak var moviesTableView: UITableView!
     @IBOutlet private weak var moviesTableTitle: UILabel!
+    @IBOutlet weak var moviesTableHeightConstraint: NSLayoutConstraint!
     
     private lazy var viewModel = HomeVM()
     
@@ -174,6 +175,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let cell: MovieTableCell = moviesTableView.dequeueCell(for: indexPath)
         let movie: Movie = viewModel.selectedCategoryMovies[indexPath.row]
         cell.setup(movie: movie)
+        moviesTableHeightConstraint.constant = moviesTableView.contentSize.height + CGFloat((viewModel.selectedCategoryMovies.count - 1) * 20)
         return cell
     }
     
