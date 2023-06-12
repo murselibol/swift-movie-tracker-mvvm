@@ -20,6 +20,7 @@ final class GenreCollectionCell: UICollectionViewCell, NibProtocol, ReuseProtoco
         genreButton.layer.cornerRadius = genreButton.frame.width * 0.1
         genreButton.layer.borderWidth = 0.8
         genreButton.layer.borderColor = UIColor.white.cgColor
+        genreButton.layer.borderColor = UIColor.getColor(color: .primaryColor)
     }
     
     func setup(genre: String) {
