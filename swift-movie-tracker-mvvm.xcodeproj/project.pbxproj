@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5902432F2A3792050039E390 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5902432E2A3792050039E390 /* Colors.xcassets */; };
+		590243312A3798080039E390 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590243302A3798080039E390 /* Colors.swift */; };
 		5925E8492A041BF500D71D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E8482A041BF500D71D9F /* AppDelegate.swift */; };
 		5925E84B2A041BF500D71D9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5925E84A2A041BF500D71D9F /* SceneDelegate.swift */; };
 		5925E8522A041BF600D71D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5925E8512A041BF600D71D9F /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		435018CD96903D1ECBCD4870 /* Pods-swift-movie-tracker-mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-movie-tracker-mvvm.release.xcconfig"; path = "Target Support Files/Pods-swift-movie-tracker-mvvm/Pods-swift-movie-tracker-mvvm.release.xcconfig"; sourceTree = "<group>"; };
 		5902432E2A3792050039E390 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		590243302A3798080039E390 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5925E8452A041BF500D71D9F /* swift-movie-tracker-mvvm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-movie-tracker-mvvm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5925E8482A041BF500D71D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5925E84A2A041BF500D71D9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				592E1A772A0800E1007DABBB /* Constant.swift */,
+				590243302A3798080039E390 /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				592E1A862A096F31007DABBB /* UIImage+Ext.swift in Sources */,
 				592E1A832A081022007DABBB /* MovieTableCell.swift in Sources */,
 				59705A092A1FFED300C18A79 /* MoviesModel.swift in Sources */,
+				590243312A3798080039E390 /* Colors.swift in Sources */,
 				59705A012A1FFAEB00C18A79 /* CastService.swift in Sources */,
 				592E1A902A097475007DABBB /* FilterTableCell.swift in Sources */,
 				5925E84B2A041BF500D71D9F /* SceneDelegate.swift in Sources */,
