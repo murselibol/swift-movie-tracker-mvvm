@@ -175,6 +175,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let cell: MovieTableCell = moviesTableView.dequeueCell(for: indexPath)
         let movie: Movie = viewModel.selectedCategoryMovies[indexPath.row]
         cell.setup(movie: movie)
+        // TODO: Find a better solution
         moviesTableHeightConstraint.constant = moviesTableView.contentSize.height + CGFloat((viewModel.selectedCategoryMovies.count - 1) * 20)
         return cell
     }
