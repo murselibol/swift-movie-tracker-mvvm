@@ -6,5 +6,6 @@ target 'swift-movie-tracker-mvvm' do
   
   pod 'Alamofire'
   pod 'SDWebImage', '~> 5.0'
+  pod 'youtube-ios-player-helper'
 
 end

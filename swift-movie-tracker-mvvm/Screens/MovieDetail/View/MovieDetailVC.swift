@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 protocol MovieDetailViewInterface: AnyObject {
     var movieId: Int { get }
@@ -15,6 +16,7 @@ protocol MovieDetailViewInterface: AnyObject {
     func genreReloadData()
     func configureCastCollectionView()
     func castReloadData()
+    func loadYoutubePlayerVideo(id: String)
     
     func configureMovieData(movie: MovieModel)
 }
@@ -29,7 +31,7 @@ final class MovieDetailVC: UIViewController {
     @IBOutlet private weak var genreCollectionView: UICollectionView!
     @IBOutlet private weak var overviewLabel: UILabel!
     @IBOutlet private weak var castCollectionView: UICollectionView!
-    
+    @IBOutlet private weak var youtubePlayerView: YTPlayerView!
     
     var movieId: Int
     private lazy var viewModel = MovieDetailVM()
@@ -84,6 +86,10 @@ extension MovieDetailVC: MovieDetailViewInterface {
     
     func castReloadData () {
         castCollectionView.reloadData()
+    }
+    
+    func loadYoutubePlayerVideo(id: String) {
+        youtubePlayerView.load(withVideoId: id)
     }
 }
 
