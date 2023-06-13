@@ -20,6 +20,7 @@ final class MovieDetailVM {
     
     var movie: MovieModel?
     var casts: [Cast]?
+    var videos: [MovieVideo]?
     
     func getMovie(id: Int) {
         movieService.getMovie(id: id) { [weak self] res, error in
@@ -52,6 +53,22 @@ final class MovieDetailVM {
         }
     }
     
+    func getVideos(id: Int) {
+        movieService.getVideos(id: id) { [weak self] res, error in
+            guard let self = self else { return }
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let videos = res {
+                self.videos = videos.results
+                guard let video = self.videos?[0] else { return }
+                self.view?.loadYoutubePlayerVideo(id: video.key)
+            }
+        }
+    }
+    
 }
 
 extension MovieDetailVM: MovieDetailViewModelInterface {
@@ -63,6 +80,7 @@ extension MovieDetailVM: MovieDetailViewModelInterface {
         guard let movieId = view?.movieId else { return }
         getMovie(id: movieId)
         getCasts(id: movieId)
+        getVideos(id: movieId)
     }
     
     

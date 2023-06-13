@@ -16,6 +16,7 @@ protocol MovieDetailViewInterface: AnyObject {
     func genreReloadData()
     func configureCastCollectionView()
     func castReloadData()
+    func loadYoutubePlayerVideo(id: String)
     
     func configureMovieData(movie: MovieModel)
 }
@@ -50,8 +51,6 @@ final class MovieDetailVC: UIViewController {
         
         viewModel.view = self
         viewModel.viewDidLoad()
-        
-        youtubePlayerView.load(withVideoId: "ZiZeIERGuvA")
     }
 }
 
@@ -87,6 +86,10 @@ extension MovieDetailVC: MovieDetailViewInterface {
     
     func castReloadData () {
         castCollectionView.reloadData()
+    }
+    
+    func loadYoutubePlayerVideo(id: String) {
+        youtubePlayerView.load(withVideoId: id)
     }
 }
 
