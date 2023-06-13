@@ -58,6 +58,18 @@ class MovieService: MovieServiceInterface {
         }
     }
     
+    func getVideos(id: Int, complete: @escaping ((MovieVideosModel?, Error?) -> ())) {
+        let url = NetworkHelper.shared.requestUrl(url: "movie/\(id)/videos")
+        NetworkManager.shared.request(type: MovieVideosModel.self, url: url, method: .get) { response in
+            switch response {
+            case .success(let data):
+                complete(data, nil)
+            case .failure(let error):
+                complete(nil, error)
+            }
+        }
+    }
+    
     //MARK: - Get
     func getMovie(id: Int, complete: @escaping ((MovieModel?, Error?) -> ())) {
         let url = NetworkHelper.shared.requestUrl(url: "movie/\(id)")
