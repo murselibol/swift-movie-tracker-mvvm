@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
 protocol MovieDetailViewInterface: AnyObject {
     var movieId: Int { get }
@@ -29,7 +30,7 @@ final class MovieDetailVC: UIViewController {
     @IBOutlet private weak var genreCollectionView: UICollectionView!
     @IBOutlet private weak var overviewLabel: UILabel!
     @IBOutlet private weak var castCollectionView: UICollectionView!
-    
+    @IBOutlet private weak var youtubePlayerView: YTPlayerView!
     
     var movieId: Int
     private lazy var viewModel = MovieDetailVM()
@@ -49,6 +50,8 @@ final class MovieDetailVC: UIViewController {
         
         viewModel.view = self
         viewModel.viewDidLoad()
+        
+        youtubePlayerView.load(withVideoId: "ZiZeIERGuvA")
     }
 }
 

@@ -20,6 +20,7 @@
                 <outlet property="timeLabel" destination="vyq-6j-Pvs" id="MzJ-5P-fIL"/>
                 <outlet property="titleLabel" destination="GNT-uA-1Qa" id="bb7-u3-vna"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="youtubePlayerView" destination="TCR-gR-Zxu" id="vf4-Jf-wGg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -174,17 +175,8 @@
                                     <color key="textColor" name="titleColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCR-gR-Zxu">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCR-gR-Zxu" customClass="YTPlayerView">
                                     <rect key="frame" x="0.0" y="755" width="390" height="219.33333333333337"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Video Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ded-98-Hsh">
-                                            <rect key="frame" x="148" y="99" width="95" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="TCR-gR-Zxu" secondAttribute="height" multiplier="16:9" id="kXk-DW-Bf2"/>
