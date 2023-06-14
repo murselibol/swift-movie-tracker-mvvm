@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8T-3J-CAz">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="973"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="976"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-p0-0Fd">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="292.66666666666669"/>
@@ -125,10 +125,10 @@
                                     </subviews>
                                 </stackView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UY5-7W-Hnv">
-                                    <rect key="frame" x="0.0" y="388.33333333333331" width="390" height="32"/>
+                                    <rect key="frame" x="0.0" y="388.33333333333331" width="390" height="35"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="32" id="Ta3-8k-9Uq"/>
+                                        <constraint firstAttribute="height" constant="35" id="Ta3-8k-9Uq"/>
                                     </constraints>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="8" id="gtl-Un-6kE">
                                         <size key="itemSize" width="128" height="128"/>
@@ -138,26 +138,26 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjH-W9-y4z">
-                                    <rect key="frame" x="10" y="438.33333333333331" width="370" height="28.666666666666686"/>
+                                    <rect key="frame" x="10" y="441.33333333333331" width="370" height="28.666666666666686"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                     <color key="textColor" name="titleColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2w-ek-7l6">
-                                    <rect key="frame" x="10" y="477.00000000000006" width="370" height="83.666666666666686"/>
+                                    <rect key="frame" x="10" y="480.00000000000006" width="370" height="83.666666666666686"/>
                                     <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" name="defaultColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBf-bW-iBM">
-                                    <rect key="frame" x="10" y="578.66666666666663" width="370" height="28.666666666666629"/>
+                                    <rect key="frame" x="10" y="581.66666666666663" width="370" height="28.666666666666629"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                     <color key="textColor" name="titleColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xTK-Zy-Eom">
-                                    <rect key="frame" x="0.0" y="617.33333333333337" width="390" height="80"/>
+                                    <rect key="frame" x="0.0" y="620.33333333333337" width="390" height="80"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="80" id="AG3-GG-9J4"/>
@@ -170,13 +170,13 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLI-cn-ttL">
-                                    <rect key="frame" x="10" y="716.33333333333337" width="370" height="28.666666666666629"/>
+                                    <rect key="frame" x="10" y="719.33333333333337" width="370" height="28.666666666666629"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                     <color key="textColor" name="titleColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCR-gR-Zxu" customClass="YTPlayerView">
-                                    <rect key="frame" x="10" y="755" width="370" height="208"/>
+                                    <rect key="frame" x="10" y="758" width="370" height="208"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="TCR-gR-Zxu" secondAttribute="height" multiplier="16:9" id="kXk-DW-Bf2"/>

@@ -72,6 +72,10 @@ extension MovieDetailVC: MovieDetailViewInterface {
         genreCollectionView.delegate = self
         genreCollectionView.dataSource = self
         genreCollectionView.registerCell(type: GenreCollectionCell.self)
+        
+        if let layout = genreCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
     }
     
     func genreReloadData () {
@@ -123,9 +127,6 @@ extension MovieDetailVC: UICollectionViewDataSource, UICollectionViewDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
-        case genreCollectionView:
-            // TODO: @mursel - make dynamic width
-            return CGSize(width: 110, height: collectionView.frame.height)
         case castCollectionView:
             return CGSize(width: collectionView.frame.height * 0.9, height: collectionView.frame.height)
         default:
