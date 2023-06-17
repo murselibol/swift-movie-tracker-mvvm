@@ -10,7 +10,7 @@ import UIKit
 protocol HomeViewInterface: AnyObject {
     func configureVC()
     func configureNavigationBar()
-    func filterButtonPressed()
+    
     
     func configureCollectionView()
     func collectionPagingEnabled()
@@ -66,11 +66,11 @@ extension HomeVC: HomeViewInterface {
         
     }
     
-    @objc func filterButtonPressed() {
+    @objc private func filterButtonPressed() {
         viewModel.openFilterSheet()
     }
     
-    @objc func searchButtonPressed() {
+    @objc private func searchButtonPressed() {
         viewModel.navigateSearchVC()
     }
     

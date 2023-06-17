@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaceholderTextView: UIView {
+final class PlaceholderTextView: UIView {
     @IBOutlet private weak var iconImage: UIImageView!
     @IBOutlet private weak var textLabel: UILabel!
     

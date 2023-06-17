@@ -53,7 +53,7 @@ final class HomeVM {
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
-    @objc func moveToNextIndex() {
+    @objc private func moveToNextIndex() {
         if pageControlIndex < trendingMovies.count {
             updateCollectionIndex()
             pageControlIndex += 1
@@ -64,14 +64,14 @@ final class HomeVM {
         }
     }
     
-    func updateCollectionIndex(){
+    private func updateCollectionIndex(){
         let indexPath = IndexPath.init(item: pageControlIndex, section: 0)
         view?.collectionPagingDisabled()
         view?.collectionScrollToItem(at: indexPath)
         view?.collectionPagingEnabled()
     }
     
-    func getSelectedMovieId(index: Int, type: MoviesSectionType) -> Int? {
+    private func getSelectedMovieId(index: Int, type: MoviesSectionType) -> Int? {
         switch type {
         case .highlight:
             return trendingMovies[index].id

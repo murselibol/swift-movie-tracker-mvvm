@@ -10,6 +10,7 @@ import Foundation
 protocol MovieServiceInterface {
     func getMoviesByCategory(categoryName: MovieCategory, complete: @escaping((MoviesModel?, Error?)->()))
     func getMoviesByName(name: String, page: Int, complete: @escaping((MoviesModel?, Error?)->()))
+    func getVideos(id: Int, complete: @escaping ((MovieVideosModel?, Error?) -> ()))
     func getMovie(id: Int, complete: @escaping((MovieModel?, Error?)->()))
 }
 
