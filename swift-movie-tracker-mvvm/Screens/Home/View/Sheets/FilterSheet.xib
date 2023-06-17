@@ -27,14 +27,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zUu-H4-1kA">
-                    <rect key="frame" x="20" y="144" width="350" height="643"/>
+                    <rect key="frame" x="20" y="143.66666666666669" width="350" height="643.33333333333326"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJF-b3-LN3" customClass="DividerView" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
-                    <rect key="frame" x="20" y="128" width="350" height="1"/>
+                    <rect key="frame" x="20" y="128" width="350" height="0.66666666666665719"/>
                     <color key="backgroundColor" name="textGrayColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="dUo-TP-Rpx"/>
+                        <constraint firstAttribute="height" constant="0.5" id="dUo-TP-Rpx"/>
                     </constraints>
                 </view>
             </subviews>
