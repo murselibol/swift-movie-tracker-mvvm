@@ -21,32 +21,45 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9a-GB-2fL">
-                    <rect key="frame" x="20" y="77" width="360" height="36"/>
+                    <rect key="frame" x="20" y="77" width="350" height="36"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                     <color key="textColor" name="titleColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zUu-H4-1kA">
-                    <rect key="frame" x="20" y="133" width="360" height="654"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zUu-H4-1kA">
+                    <rect key="frame" x="20" y="144" width="350" height="643"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJF-b3-LN3" customClass="DividerView" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
+                    <rect key="frame" x="20" y="128" width="350" height="1"/>
+                    <color key="backgroundColor" name="textGrayColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="dUo-TP-Rpx"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="h9a-GB-2fL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="16g-Bg-p2Z"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="h9a-GB-2fL" secondAttribute="trailing" constant="10" id="8YU-hx-Hnh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="h9a-GB-2fL" secondAttribute="trailing" constant="20" id="8YU-hx-Hnh"/>
+                <constraint firstItem="KJF-b3-LN3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="CIi-QN-awD"/>
+                <constraint firstItem="zUu-H4-1kA" firstAttribute="top" secondItem="KJF-b3-LN3" secondAttribute="bottom" constant="15" id="HPs-FG-GbJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zUu-H4-1kA" secondAttribute="bottom" id="Hp7-dy-5sm"/>
                 <constraint firstItem="zUu-H4-1kA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LZd-SY-zft"/>
                 <constraint firstItem="h9a-GB-2fL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NzL-Mo-bvF"/>
-                <constraint firstItem="zUu-H4-1kA" firstAttribute="top" secondItem="h9a-GB-2fL" secondAttribute="bottom" constant="20" id="PJB-JO-z6I"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zUu-H4-1kA" secondAttribute="trailing" constant="10" id="qb1-oM-ZTW"/>
+                <constraint firstItem="KJF-b3-LN3" firstAttribute="top" secondItem="h9a-GB-2fL" secondAttribute="bottom" constant="15" id="qaf-gG-UOK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zUu-H4-1kA" secondAttribute="trailing" constant="20" id="qb1-oM-ZTW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KJF-b3-LN3" secondAttribute="trailing" constant="20" id="ti1-jm-AbN"/>
             </constraints>
             <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="12" y="-11"/>
+            <point key="canvasLocation" x="10.769230769230768" y="-11.374407582938389"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="textGrayColor">
+            <color red="0.57300001382827759" green="0.57300001382827759" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="titleColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
