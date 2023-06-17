@@ -63,8 +63,8 @@ final class MovieDetailVM {
             
             if let videos = res {
                 self.videos = videos.results
-                guard let video = self.videos?[0] else { return }
-                self.view?.loadYoutubePlayerVideo(id: video.key)
+                guard let video = self.videos, !video.isEmpty else { return }
+                self.view?.loadYoutubePlayerVideo(id: video[0].key)
             }
         }
     }

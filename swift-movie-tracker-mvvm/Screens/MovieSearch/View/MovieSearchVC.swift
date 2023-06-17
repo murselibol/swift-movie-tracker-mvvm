@@ -110,6 +110,14 @@ extension MovieSearchVC: MovieSearchViewInterface {
     }
 }
 
+//MARK: - UITextViewDelegate
+extension MovieSearchVC: UITextViewDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+    }
+}
+
+
 //MARK: - UITableView
 extension MovieSearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

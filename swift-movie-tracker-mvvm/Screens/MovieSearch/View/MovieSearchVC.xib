@@ -29,7 +29,7 @@
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="textColor" name="defaultColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBj-a4-7Ra" customClass="PlaceholderTextView" customModule="swift_movie_tracker_mvvm" customModuleProvider="target">
                     <rect key="frame" x="10" y="91" width="370" height="719"/>
