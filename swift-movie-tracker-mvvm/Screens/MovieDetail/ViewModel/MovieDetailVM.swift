@@ -68,7 +68,6 @@ final class MovieDetailVM {
             }
         }
     }
-    
 }
 
 extension MovieDetailVM: MovieDetailViewModelInterface {

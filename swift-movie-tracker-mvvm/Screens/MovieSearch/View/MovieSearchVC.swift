@@ -85,6 +85,7 @@ extension MovieSearchVC: MovieSearchViewInterface {
     }
     
     func becomeFirstResponder() {
+        guard searchText.count < 3 else { return }
         searchTextField.becomeFirstResponder()
     }
     

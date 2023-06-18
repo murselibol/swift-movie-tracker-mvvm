@@ -82,7 +82,7 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
     
     func searchTextFieldDidChangeSelection(searchText: String) {
         resetMoviesTableData()
-        guard searchText.count > 2 else { return }
+        guard searchText.count >= 3 else { return }
         self.changeVisibleItem(hide: .placeholder)
         let text = searchText.replacingOccurrences(of: " ", with: "+")
         getMoviesByName(text: text)
