@@ -45,12 +45,13 @@ final class MovieSearchVM {
     
     //MARK: - Network Functions
     private func getMoviesByName(text: String) {
+        self.view?.startLoadingIndicator()
         movieService.getMoviesByName(name: text, page: page) { [weak self] res, error in
             guard let self = self else { return }
-            self.view?.startLoadingIndicator()
             
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.view?.stopLoadingIndicator()
                 return
             }
             
