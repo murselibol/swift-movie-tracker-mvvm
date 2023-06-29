@@ -11,13 +11,11 @@ protocol CastServiceInterface {
     func getCasts(movieId: Int, complete: @escaping((CastsModel?, Error?)->()))
 }
 
-class CastService: CastServiceInterface {
-    
-    //MARK: - Variables
-    static let shared = CastService()
-    
-    //MARK: - Functions
+final class CastService: CastServiceInterface {
 
+    static let shared = CastService()
+
+    //MARK: - Fetch
     func getCasts(movieId: Int, complete: @escaping ((CastsModel?, Error?) -> ())) {
         let url = NetworkHelper.shared.requestUrl(url: "movie/\(movieId)/casts")
         NetworkManager.shared.request(type: CastsModel.self, url: url, method: .get) { response in

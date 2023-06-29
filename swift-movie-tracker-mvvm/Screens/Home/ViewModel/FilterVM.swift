@@ -8,7 +8,6 @@
 import Foundation
 
 protocol FilterViewModelInterface {
-    var view: FilterSheetInterface? { get set }
     var homeViewModel: HomeVM { get set }
     
     func viewDidLoad()
@@ -17,7 +16,7 @@ protocol FilterViewModelInterface {
 
 final class FilterVM {
     
-    weak var view: FilterSheetInterface?
+    private weak var view: FilterSheetInterface?
     var homeViewModel = HomeVM(view: HomeVC())
 
     var filterItems = [
@@ -26,6 +25,10 @@ final class FilterVM {
         FilterModel(title: "Top Rated", type: .topRated),
         FilterModel(title: "Upcoming", type: .upcoming)
     ]
+    
+    init(view: FilterSheetInterface) {
+        self.view = view
+    }
 
 }
 

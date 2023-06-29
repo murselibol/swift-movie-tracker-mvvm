@@ -39,14 +39,12 @@ final class MovieSearchVC: UIViewController {
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var placeholderTextView: PlaceholderTextView!
     
-    private lazy var viewModel = MovieSearchVM()
+    private lazy var viewModel = MovieSearchVM(view: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.view = self
         viewModel.viewDidLoad()
-        moviesTableView.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

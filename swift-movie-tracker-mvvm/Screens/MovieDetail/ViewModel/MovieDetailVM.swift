@@ -8,19 +8,23 @@
 import Foundation
 
 protocol MovieDetailViewModelInterface {
-    var view: MovieDetailViewInterface? { get set }
-    
     func viewDidLoad()
 }
 
 final class MovieDetailVM {
-    weak var view: MovieDetailViewInterface?
-    private let movieService = MovieService()
-    private let castService = CastService()
+    private weak var view: MovieDetailViewInterface?
+    private let movieService: MovieServiceInterface
+    private let castService: CastServiceInterface
     
     var movie: MovieModel?
     var casts: [Cast]?
     var videos: [MovieVideo]?
+    
+    init(view: MovieDetailViewInterface, movieService: MovieServiceInterface = MovieService.shared, castService: CastServiceInterface = CastService.shared) {
+        self.view = view
+        self.movieService = movieService
+        self.castService = castService
+    }
     
     func getMovie(id: Int) {
         movieService.getMovie(id: id) { [weak self] res, error in

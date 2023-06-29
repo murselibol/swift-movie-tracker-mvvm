@@ -15,12 +15,11 @@ final class FilterSheet: UIViewController {
 
     @IBOutlet private weak var filterTableView: UITableView!
     
-    lazy var viewModel = FilterVM()
+    lazy var viewModel = FilterVM(view: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.view = self
+
         viewModel.viewDidLoad()
     }
 }

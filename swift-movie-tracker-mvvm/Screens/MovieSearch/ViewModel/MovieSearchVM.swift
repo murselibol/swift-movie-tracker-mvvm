@@ -8,8 +8,6 @@
 import Foundation
 
 protocol MovieSearchViewModelInterface {
-    var view: MovieSearchViewInterface? { get set }
-    
     func viewDidLoad()
     func viewDidAppear()
     func searchTextFieldDidChangeSelection(searchText: String)
@@ -18,11 +16,15 @@ protocol MovieSearchViewModelInterface {
 }
 
 final class MovieSearchVM {
-    var view: MovieSearchViewInterface?
-    private let movieService = MovieService()
+    private weak var view: MovieSearchViewInterface?
+    private let movieService: MovieServiceInterface
     var movies: [Movie] = []
     private var page: Int = 1
     
+    init(view: MovieSearchViewInterface, movieService: MovieServiceInterface = MovieService.shared) {
+        self.view = view
+        self.movieService = movieService
+    }
     private func resetMoviesTableData() {
         self.movies = []
         self.page = 1
@@ -73,6 +75,7 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
         view?.configureVC()
         view?.configureSearchTextField()
         view?.configureMoviesTableView()
+        view?.hiddenMoviesTable(state: true)
         view?.updatePlaceholder(text: "Sorry, no matches found for your search term.")
         self.changeVisibleItem(hide: .table)
     }

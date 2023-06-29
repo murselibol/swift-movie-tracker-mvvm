@@ -34,7 +34,7 @@ final class MovieDetailVC: UIViewController {
     @IBOutlet private weak var youtubePlayerView: YTPlayerView!
     
     var movieId: Int
-    private lazy var viewModel = MovieDetailVM()
+    private lazy var viewModel = MovieDetailVM(view: self)
     
     
     init(id: Int) {
@@ -49,7 +49,6 @@ final class MovieDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.view = self
         viewModel.viewDidLoad()
     }
 }
