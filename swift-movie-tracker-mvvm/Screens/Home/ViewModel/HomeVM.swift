@@ -13,8 +13,6 @@ enum MoviesSectionType {
 }
 
 protocol HomeViewModelInterface {
-    var view: HomeViewInterface? { get set }
-    
     func viewDidLoad()
     func openFilterSheet()
     func navigateSearchVC()
@@ -22,8 +20,8 @@ protocol HomeViewModelInterface {
 }
 
 final class HomeVM {
-    weak var view: HomeViewInterface?
-    private let movieService = MovieService()
+    private weak var view: HomeViewInterface?
+    private let movieService: MovieServiceInterface
     
     var trendingMovies: [Movie] = []
     var selectedCategoryMovies: [Movie] = []
@@ -45,6 +43,11 @@ final class HomeVM {
     
     var timer = Timer()
     var pageControlIndex = 0
+    
+    init(view: HomeViewInterface, movieService: MovieServiceInterface = MovieService.shared) {
+        self.view = view
+        self.movieService = movieService
+    }
     
     
     //MARK: - Functions

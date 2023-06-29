@@ -11,7 +11,6 @@ protocol HomeViewInterface: AnyObject {
     func configureVC()
     func configureNavigationBar()
     
-    
     func configureCollectionView()
     func collectionPagingEnabled()
     func collectionPagingDisabled()
@@ -30,16 +29,15 @@ final class HomeVC: UIViewController {
     @IBOutlet private weak var highlightCollectionView: UICollectionView!
     @IBOutlet private weak var moviesTableView: UITableView!
     @IBOutlet private weak var moviesTableTitle: UILabel!
-    @IBOutlet weak var moviesTableHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var moviesTableHeightConstraint: NSLayoutConstraint!
     
-    private lazy var viewModel = HomeVM()
+    private lazy var viewModel = HomeVM(view: self)
     
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.view = self
         viewModel.viewDidLoad()
     }
 }

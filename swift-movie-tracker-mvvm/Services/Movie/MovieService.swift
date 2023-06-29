@@ -14,11 +14,8 @@ protocol MovieServiceInterface {
     func getMovie(id: Int, complete: @escaping((MovieModel?, Error?)->()))
 }
 
-class MovieService: MovieServiceInterface {
+final class MovieService: MovieServiceInterface {
 
-    
-    
-    //MARK: - Variables
     static let shared = MovieService()
     
     //MARK: - Fetch

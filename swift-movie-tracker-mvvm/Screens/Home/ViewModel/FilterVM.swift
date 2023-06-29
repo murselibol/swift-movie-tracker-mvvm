@@ -18,7 +18,7 @@ protocol FilterViewModelInterface {
 final class FilterVM {
     
     weak var view: FilterSheetInterface?
-    var homeViewModel = HomeVM()
+    var homeViewModel = HomeVM(view: HomeVC())
 
     var filterItems = [
         FilterModel(title: "Now Playing", type: .nowPlaying),
