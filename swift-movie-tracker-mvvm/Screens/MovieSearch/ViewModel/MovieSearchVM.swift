@@ -48,22 +48,21 @@ final class MovieSearchVM {
     //MARK: - Network Functions
     private func getMoviesByName(text: String) {
         self.view?.startLoadingIndicator()
-        movieService.getMoviesByName(name: text, page: page) { [weak self] res, error in
+        movieService.getMoviesByName(name: text, page: page) { [weak self] result in
             guard let self = self else { return }
             
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                self.view?.stopLoadingIndicator()
-                return
-            }
-            
-            if let movies = res?.results {
+            switch result {
+            case .success(let data):
+                self.movies = data.results ?? []
                 self.movies.append(contentsOf: movies)
                 self.page += 1
                 self.view?.moviesTableReloadData()
                 if movies.count == 0 { self.changeVisibleItem(hide: .table) }
                 self.view?.stopLoadingIndicator()
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
             }
+            
         }
     }
     

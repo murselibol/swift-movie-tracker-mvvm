@@ -27,48 +27,44 @@ final class MovieDetailVM {
     }
     
     func getMovie(id: Int) {
-        movieService.getMovie(id: id) { [weak self] res, error in
+        movieService.getMovie(id: id) { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
             
-            if let movie = res {
-                self.movie = movie
-                self.view?.configureMovieData(movie: movie)
+            switch result {
+            case .success(let data):
+                self.movie = data
+                self.view?.configureMovieData(movie: self.movie!)
                 self.view?.genreReloadData()
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
             }
         }
     }
     
     func getCasts(id: Int) {
-        castService.getCasts(movieId: id) { [weak self] res, error in
+        castService.getCasts(movieId: id) { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
-            
-            if let casts = res {
-                self.casts = casts.cast
+            switch result {
+            case .success(let data):
+                self.casts = data.cast
                 self.view?.castReloadData()
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
             }
         }
     }
     
     func getVideos(id: Int) {
-        movieService.getVideos(id: id) { [weak self] res, error in
+        movieService.getVideos(id: id) { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
             
-            if let videos = res {
-                self.videos = videos.results
+            switch result {
+            case .success(let data):
+                self.videos = data.results
                 guard let video = self.videos, !video.isEmpty else { return }
                 self.view?.loadYoutubePlayerVideo(id: video[0].key)
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
             }
         }
     }

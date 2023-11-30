@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CastServiceInterface {
-    func getCasts(movieId: Int, complete: @escaping((CastsModel?, Error?)->()))
+    func getCasts(movieId: Int, complete: @escaping (Result<CastsModel, ErrorTypes>) -> Void)
 }
 
 final class CastService: CastServiceInterface {
@@ -16,15 +16,8 @@ final class CastService: CastServiceInterface {
     static let shared = CastService()
 
     //MARK: - Fetch
-    func getCasts(movieId: Int, complete: @escaping ((CastsModel?, Error?) -> ())) {
+    func getCasts(movieId: Int, complete: @escaping (Result<CastsModel, ErrorTypes>) -> Void) {
         let url = NetworkHelper.shared.requestUrl(url: "movie/\(movieId)/casts")
-        NetworkManager.shared.request(type: CastsModel.self, url: url, method: .get) { response in
-            switch response {
-            case .success(let data):
-                complete(data, nil)
-            case .failure(let error):
-                complete(nil, error)
-            }
-        }
+        NetworkManager.shared.request(type: CastsModel.self, url: url, method: .get, completion: complete)
     }
 }

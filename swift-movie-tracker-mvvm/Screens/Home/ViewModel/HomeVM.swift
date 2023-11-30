@@ -86,34 +86,33 @@ final class HomeVM {
     
     //MARK: - Network Functions
     func fetchTrendingMovies() {
-        movieService.getMoviesByCategory(categoryName: .trending) { [weak self] movies, error in
+        movieService.getMoviesByCategory(categoryName: .trending) { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
             
-            if let movies = movies {
-                self.trendingMovies = movies.results ?? []
+            switch result {
+            case .success(let data):
+                self.trendingMovies = data.results ?? []
                 self.view?.collectionReloadData()
                 self.startCollectionTimer()
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
             }
         }
     }
     
     func fetchMoviesByCategory(){
-        movieService.getMoviesByCategory(categoryName: selectedMovieCategory) { [weak self] movies, error in
+        movieService.getMoviesByCategory(categoryName: selectedMovieCategory) { [weak self] result in
             guard let self = self else { return }
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-                return
-            }
             
-            if let movies = movies {
-                self.selectedCategoryMovies = movies.results ?? []
+            switch result {
+            case .success(let data):
+                self.selectedCategoryMovies = data.results ?? []
                 self.view?.updateMoviesTableTitle(title: self.categoryTitle)
                 self.view?.tableReloadData()
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
             }
+            
         }
     }
     

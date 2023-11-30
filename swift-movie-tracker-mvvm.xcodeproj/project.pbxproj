@@ -429,18 +429,10 @@
 		596C1EE72A223A5400F92577 /* MovieSearch */ = {
 			isa = PBXGroup;
 			children = (
-				596C1EE82A223AAF00F92577 /* Model */,
 				596C1EE92A223AB300F92577 /* View */,
 				596C1EEA2A223AB700F92577 /* ViewModel */,
 			);
 			path = MovieSearch;
-			sourceTree = "<group>";
-		};
-		596C1EE82A223AAF00F92577 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		596C1EE92A223AB300F92577 /* View */ = {
