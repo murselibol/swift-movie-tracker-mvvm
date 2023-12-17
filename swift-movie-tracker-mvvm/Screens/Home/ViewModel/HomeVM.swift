@@ -14,6 +14,7 @@ enum MoviesSectionType {
 
 protocol HomeViewModelInterface {
     func viewDidLoad()
+    func changeThemeMode(currentTheme: ThemeMode)
     func openFilterSheet()
     func navigateSearchVC()
     func didSelectItem(at indexPath: IndexPath, cellType: MoviesSectionType)
@@ -129,6 +130,16 @@ extension HomeVM: HomeViewModelInterface {
         fetchMoviesByCategory()
     }
     
+    func changeThemeMode(currentTheme: ThemeMode) {
+        if currentTheme == .dark {
+            ThemeMode.mode = .light
+            view?.changeThemeBarButtonImage(imageName: "moon.stars.fill")
+        } else {
+            ThemeMode.mode = .dark
+            view?.changeThemeBarButtonImage(imageName: "sun.max.fill")
+        }
+    }
+    
     func openFilterSheet() {
         let filterSheet = FilterSheet()
         filterSheet.viewModel.homeViewModel = self
@@ -151,3 +162,5 @@ extension HomeVM: HomeViewModelInterface {
         self.view?.navigateController(vc: movieDetailVC, animate: true)
     }
 }
+
+

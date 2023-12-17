@@ -14,6 +14,6 @@ extension UINavigationController {
         navigationBar.backIndicatorImage = image
         navigationBar.backIndicatorTransitionMaskImage = image
         navigationBar.topItem?.backButtonTitle = title
-        navigationBar.tintColor = color ?? (UITraitCollection.currentThemeMode == .dark ? .white : .black)
+        navigationBar.tintColor = color ?? (ThemeMode.mode == .dark ? .white : .black)
     }
 }
