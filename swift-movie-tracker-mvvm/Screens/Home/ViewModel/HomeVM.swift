@@ -67,7 +67,7 @@ final class HomeVM {
         }
     }
     
-    private func updateCollectionIndex(){
+    private func updateCollectionIndex() {
         let indexPath = IndexPath.init(item: pageControlIndex, section: 0)
         view?.collectionPagingDisabled()
         view?.collectionScrollToItem(at: indexPath)
@@ -100,7 +100,7 @@ final class HomeVM {
         }
     }
     
-    func fetchMoviesByCategory(){
+    func fetchMoviesByCategory() {
         movieService.getMoviesByCategory(categoryName: selectedMovieCategory) { [weak self] result in
             guard let self = self else { return }
             

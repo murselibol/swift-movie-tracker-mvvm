@@ -31,6 +31,10 @@ final class HomeVC: UIViewController {
     @IBOutlet private weak var moviesTableTitle: UILabel!
     @IBOutlet private weak var moviesTableHeightConstraint: NSLayoutConstraint!
     
+    private var themeBarButton: UIBarButtonItem!
+    private var searchBarButton: UIBarButtonItem!
+    private var filterBarButton: UIBarButtonItem!
+    
     private lazy var viewModel = HomeVM(view: self)
     
     
@@ -50,20 +54,35 @@ extension HomeVC: HomeViewInterface {
     
     func configureNavigationBar() {
         let filterImage = UIImage(named: "icon-filter")
-        let resizedFilterImage = filterImage!.resize(to: CGSize(width: 22, height: 22))
-        let filterBarButton = UIBarButtonItem(image: resizedFilterImage, style: .plain, target: self, action: #selector(filterButtonPressed))
+        let resizedFilterImage = filterImage?.resize(to: CGSize(width: 22, height: 22))
+        filterBarButton = UIBarButtonItem(image: resizedFilterImage, style: .plain, target: self, action: #selector(filterButtonPressed))
         filterBarButton.tintColor = .label
         
         let searchImage = UIImage(systemName: "magnifyingglass")
-        let resizedSearchImage = searchImage!.resize(to: CGSize(width: 22, height: 22))
-        let searchBarButton = UIBarButtonItem(image: resizedSearchImage, style: .plain, target: self, action: #selector(searchButtonPressed))
+        let resizedSearchImage = searchImage?.resize(to: CGSize(width: 22, height: 22))
+        searchBarButton = UIBarButtonItem(image: resizedSearchImage, style: .plain, target: self, action: #selector(searchButtonPressed))
         searchBarButton.tintColor = .label
         
-            
-        navigationItem.rightBarButtonItems = [filterBarButton, searchBarButton]
+        let themeImage = UIImage(systemName: UITraitCollection.currentThemeMode == .dark ? "sun.max.fill" : "moon.circle.fill")
+        let resizedThemeImage = themeImage?.resize(to: CGSize(width: 22, height: 22))
+        themeBarButton = UIBarButtonItem(image: resizedThemeImage, style: .plain, target: self, action: #selector(themeToggleButtonPressed))
+        themeBarButton.tintColor = .label
         
+        navigationItem.rightBarButtonItems = [filterBarButton, searchBarButton]
+        navigationItem.leftBarButtonItems = [themeBarButton]
     }
-    
+
+
+    @objc private func themeToggleButtonPressed() {
+        if UITraitCollection.currentThemeMode == .dark {
+            UITraitCollection.currentThemeMode = .light
+            themeBarButton.image = UIImage(systemName: "moon.stars.fill")
+        } else {
+            UITraitCollection.currentThemeMode = .dark
+            themeBarButton.image = UIImage(systemName: "sun.max.fill")
+        }
+    }
+
     @objc private func filterButtonPressed() {
         viewModel.openFilterSheet()
     }

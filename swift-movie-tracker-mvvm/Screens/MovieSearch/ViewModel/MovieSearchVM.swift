@@ -79,7 +79,7 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
         self.changeVisibleItem(hide: .table)
     }
     
-    func viewDidAppear(){
+    func viewDidAppear() {
         view?.becomeFirstResponder()
     }
     
@@ -97,7 +97,7 @@ extension MovieSearchVM: MovieSearchViewModelInterface {
         self.view?.navigateController(vc: movieDetailVC, animate: true)
     }
     
-    func moviesTableWillDisplay(){
+    func moviesTableWillDisplay() {
         guard let searchText = view?.searchText else { return }
         getMoviesByName(text: searchText)
     }

@@ -15,15 +15,15 @@ class TabBarController: UITabBarController {
         configure()
     }
     
-    func configure(){
+    func configure() {
         createTabbar()
     }
     
-    func createTabbar(){
+    func createTabbar() {
         UITabBar.appearance().tintColor = .label
         setViewControllers([
             createNavigationController(vc: HomeVC(), title: "Home", imageName: "house")
-            ], animated: true)
+        ], animated: true)
     }
     
     func createNavigationController(vc: UIViewController, title: String, imageName: String) -> UINavigationController {
